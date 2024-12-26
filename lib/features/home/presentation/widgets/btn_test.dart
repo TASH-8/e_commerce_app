@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../../../core/app_images/app_images.dart';
 
 class CustomCategoryButton extends StatelessWidget {
   const CustomCategoryButton({super.key});
@@ -9,7 +10,7 @@ class CustomCategoryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
 
-    final double buttonSize = screenWidth * 0.2; 
+    final double buttonSize = screenWidth * 0.2;
 
     return Column(
       children: [
@@ -30,7 +31,7 @@ class CustomCategoryButton extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: const Color(0xFF79E1F4).withOpacity(0.5),
-                  blurRadius: buttonSize * 0.15, 
+                  blurRadius: buttonSize * 0.15,
                   spreadRadius: buttonSize * 0.02,
                   offset: Offset(
                       -buttonSize * 0.1, -buttonSize * 0.1), // Top-left glow
@@ -46,8 +47,8 @@ class CustomCategoryButton extends StatelessWidget {
             ),
             child: Center(
               child: SvgPicture.asset(
-                'assets/icons/beauty_icons',
-                width: buttonSize * 0.6, 
+                Assets.assetsBeautyicons,
+                width: buttonSize * 0.6,
                 height: buttonSize * 0.65,
               ),
             ),
@@ -58,7 +59,3 @@ class CustomCategoryButton extends StatelessWidget {
     );
   }
 }
-
-
-
-

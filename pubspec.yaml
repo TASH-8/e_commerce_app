@@ -32,5 +32,13 @@ dev_dependencies:
   injectable_generator: ^2.6.2
 
 flutter:
+
+  uses-material-design: true
+
   assets:
-    - assets/icons/
+    - assets/
+
+flutter_assets:
+  assets_path: assets/
+  output_path: lib/core/app_images
+  filename: app_images.dart

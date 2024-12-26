@@ -41,7 +41,7 @@ class Homescreen extends StatelessWidget {
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ), 
             SizedBox(height: screenHeight * 0.02,),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [CustomCategoryButton(),CustomCategoryButton(),CustomCategoryButton(),],)
+            const Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [CustomCategoryButton(),CustomCategoryButton(),CustomCategoryButton(),],)
           ],
         ),
       ),

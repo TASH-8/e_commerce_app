@@ -2,7 +2,7 @@ import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SignUpButton extends StatelessWidget {
-  const SignUpButton({Key? key}) : super(key: key);
+  const SignUpButton({super.key});
 
   @override
   Widget build(BuildContext context) {

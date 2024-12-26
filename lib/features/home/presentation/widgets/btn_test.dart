@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomCategoryButton extends StatelessWidget {
-  const CustomCategoryButton({Key? key}) : super(key: key);
+  const CustomCategoryButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class CustomCategoryButton extends StatelessWidget {
             ),
           ),
         ),
-        Text("fashoin")
+        const Text("fashoin")
       ],
     );
   }

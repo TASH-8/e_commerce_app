@@ -1,4 +1,9 @@
-import 'package:e_commerce_app/features/home/presentation/widgets/btn_test.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:e_commerce_app/core/theming/colors_manger.dart';
+import 'package:e_commerce_app/core/theming/text_styles.dart';
+import 'package:e_commerce_app/core/utils/constants.dart';
+import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder.dart';
+import 'package:e_commerce_app/features/home/presentation/widgets/categories_row.dart';
 import 'package:flutter/material.dart';
 
 class Homescreen extends StatelessWidget {
@@ -8,40 +13,33 @@ class Homescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.05, vertical: screenHeight * 0.012),
-            child: Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.notifications_active_outlined),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.message_outlined),
-                )
-              ],
-            ),
-          )
-        ],
+      backgroundColor: ColorManger.greyshade100,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: buildAppBar(
+          screenWidth: screenWidth,
+          screenHeight: screenHeight,
+          backgroundColor: Colors.grey.shade100,
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: screenWidth * 0.05,
-        ),
+        ), 
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Catogories",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ), 
-            SizedBox(height: screenHeight * 0.02,),
-            const Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [CustomCategoryButton(),CustomCategoryButton(),CustomCategoryButton(),],)
+            AutoSizeText(
+              Constants.CATEGORIES,
+              maxLines: 1,
+              style: TextStyles.font30CustomGreyBold,
+            ),
+            SizedBox(
+              height: screenHeight * 0.02,
+            ),
+            const CategoriesRow(),
           ],
         ),
       ),

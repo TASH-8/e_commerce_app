@@ -13,7 +13,7 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorManger.redAccent,
   );
-    static const TextStyle font15redAccentBold = TextStyle(
+  static const TextStyle font15redAccentBold = TextStyle(
     fontSize: 15,
     fontWeight: FontWeightHelper.bold,
     color: ColorManger.redAccent,
@@ -24,14 +24,24 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: Colors.grey,
   );
-    static const TextStyle font18WhiteBold = TextStyle(
+  static const TextStyle font18WhiteBold = TextStyle(
     fontSize: 18,
     fontWeight: FontWeightHelper.bold,
     color: ColorManger.white,
   );
-    static const TextStyle font15GreyNormal = TextStyle(
+  static const TextStyle font15GreyNormal = TextStyle(
     fontSize: 15,
     fontWeight: FontWeightHelper.regular,
-    color: Colors.grey,
+    color: ColorManger.grey,
+  );
+  static TextStyle font16GreyBold = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorManger.greyCustomShade,
+  );
+    static TextStyle font30CustomGreyBold = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorManger.greyCustomShade,
   );
 }

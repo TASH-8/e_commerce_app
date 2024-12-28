@@ -21,4 +21,10 @@ class Constants {
   static const String ByResettingPassword =
       "By resetting your password, you agree to our";
   static const String SEND_EMAIL = "Send Email";
+  static const String APPAREL = "Apparel";
+  static const String BEAUTY = "Beauty";
+  static const String SHOES = "Shoes";
+    static const String CATEGORIES = "Categories";
+    static const String SEEALL = "See All" ;
+
 }

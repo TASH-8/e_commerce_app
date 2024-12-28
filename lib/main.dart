@@ -2,7 +2,7 @@
 
 import 'package:e_commerce_app/features/forget_reset/presentation/pages/forgot_page.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homescreen.dart';
-import 'package:e_commerce_app/features/home/presentation/widgets/btn_test.dart';
+import 'package:e_commerce_app/features/home/presentation/widgets/customCategoryBtn.dart';
 import 'package:e_commerce_app/features/login/presentation/pages/login_page.dart';
 import 'package:e_commerce_app/features/signup/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homescreen()
+      home: Homescreen() 
     );
   }
 }

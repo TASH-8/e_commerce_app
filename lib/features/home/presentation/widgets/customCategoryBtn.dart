@@ -1,15 +1,24 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../core/app_images/app_images.dart';
-
 class CustomCategoryButton extends StatelessWidget {
-  const CustomCategoryButton({super.key});
+  const CustomCategoryButton(
+      {super.key,
+      required this.grediantColor1,
+      required this.grediantColor2,
+      required this.assets,
+      required this.buttonCategorie});
+  final Color grediantColor1;
+  final Color grediantColor2;
+  final String assets;
+  final String buttonCategorie;
 
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-
+    final double screenHeight = MediaQuery.of(context).size.height;
     final double buttonSize = screenWidth * 0.2;
 
     return Column(
@@ -20,41 +29,49 @@ class CustomCategoryButton extends StatelessWidget {
             height: buttonSize,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: const LinearGradient(
-                colors: [
-                  Color(0xFF79E1F4), // Light turquoise
-                  Color(0xFF3DA6F0), // Deeper blue
-                ],
+              gradient: LinearGradient(
+                colors: [grediantColor1, grediantColor2],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xFF79E1F4).withOpacity(0.5),
+                  color: grediantColor1.withOpacity(0.5),
                   blurRadius: buttonSize * 0.15,
                   spreadRadius: buttonSize * 0.02,
                   offset: Offset(
-                      -buttonSize * 0.1, -buttonSize * 0.1), // Top-left glow
+                    -buttonSize * 0.04,
+                    -buttonSize * 0.04,
+                  ), // Top-left glow
                 ),
                 BoxShadow(
-                  color: const Color(0xFF3DA6F0).withOpacity(0.3),
+                  color: grediantColor2.withOpacity(0.3),
                   blurRadius: buttonSize * 0.15, // Dynamic blur radius
                   spreadRadius: buttonSize * 0.02,
-                  offset: Offset(buttonSize * 0.1,
-                      buttonSize * 0.1), // Bottom-right shadow
+                  offset: Offset(
+                    buttonSize * 0.08,
+                    buttonSize * 0.08,
+                  ), // Bottom-right shadow
                 ),
               ],
             ),
             child: Center(
               child: SvgPicture.asset(
-                Assets.assetsBeautyicons,
+                assets,
                 width: buttonSize * 0.6,
                 height: buttonSize * 0.65,
               ),
             ),
           ),
         ),
-        const Text("fashoin")
+        SizedBox(
+          height: screenHeight * 0.01,
+        ),
+        AutoSizeText(
+          buttonCategorie,
+          maxLines: 1,
+          style: TextStyles.font16GreyBold,
+        ),
       ],
     );
   }

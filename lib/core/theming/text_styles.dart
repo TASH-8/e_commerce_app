@@ -39,9 +39,36 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorManger.greyCustomShade,
   );
-    static TextStyle font30CustomGreyBold = TextStyle(
-    fontSize: 30,
+  static TextStyle font35CustomGreyBold = TextStyle(
+    fontSize: 35,
     fontWeight: FontWeightHelper.bold,
     color: ColorManger.greyCustomShade,
   );
+  static TextStyle font16GreyNormal = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorManger.greyCustomShade,
+  );
+  static TextStyle font18WhiteRegular =  const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorManger.white,
+  );
+    static TextStyle font14GreyCustomShadeRegular =   TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorManger.greyCustomShade,
+
+  );
+  static TextStyle font14CustomGreyRegular = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorManger.greyCustomShade,
+  );
+    static TextStyle font14CustomGreyBold = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorManger.greyCustomShade,
+  );
+
 }

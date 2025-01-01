@@ -24,7 +24,17 @@ class Constants {
   static const String APPAREL = "Apparel";
   static const String BEAUTY = "Beauty";
   static const String SHOES = "Shoes";
-    static const String CATEGORIES = "Categories";
-    static const String SEEALL = "See All" ;
-
+  static const String CATEGORIES = "Categories";
+  static const String SEEALL = "See All";
+  static const String LATEST = "Latest";
+  static const String LATESTSECTION_TEXT_INFO =
+      "For all your \nsummer clothing \nneeds";
+  static const String SEE_MORE = "SEE MORE";
+  static const String ANKLE_BOOTS = "Ankle Boots";
+  static const String BACKPACK = "Backpack";
+  static const String RED_SCARF = "Red Scarf";
+  static const double BOOT_PRICE = 49.99;
+  static const double BACKPACK_PRICE = 20.58;
+  static const double SCARF_PRICE = 11.00;
+  static const String DOLLARSIGN = "\$" ;
 }

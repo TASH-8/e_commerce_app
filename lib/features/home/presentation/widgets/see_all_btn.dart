@@ -32,16 +32,7 @@ class SeeAllBtn extends StatelessWidget {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: ColorManger.white.withOpacity(0.5),
-                  blurRadius: buttonSize * 0.15,
-                  spreadRadius: buttonSize * 0.02,
-                  offset: Offset(
-                    -buttonSize * 0.04,
-                    -buttonSize * 0.04,
-                  ), // Top-left glow
-                ),
-                BoxShadow(
-                  color: ColorManger.white.withOpacity(0.3),
+                  color: ColorManger.grey.withOpacity(0.3),
                   blurRadius: buttonSize * 0.15, // Dynamic blur radius
                   spreadRadius: buttonSize * 0.02,
                   offset: Offset(
@@ -66,7 +57,7 @@ class SeeAllBtn extends StatelessWidget {
         AutoSizeText(
           buttonCategorie,
           maxLines: 1,
-          style: TextStyles.font16GreyBold,
+          style: TextStyles.font16GreyNormal,
         ),
       ],
     );

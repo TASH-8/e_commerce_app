@@ -24,42 +24,44 @@ class CustomCategoryButton extends StatelessWidget {
     return Column(
       children: [
         Center(
-          child: Container(
-            width: buttonSize,
-            height: buttonSize,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                colors: [grediantColor1, grediantColor2],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+          child: InkWell(
+            child: Container(
+              width: buttonSize,
+              height: buttonSize,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  colors: [grediantColor1, grediantColor2],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: grediantColor1.withOpacity(0.5),
+                    blurRadius: buttonSize * 0.15,
+                    spreadRadius: buttonSize * 0.02,
+                    offset: Offset(
+                      -buttonSize * 0.04,
+                      -buttonSize * 0.04,
+                    ), // Top-left glow
+                  ),
+                  BoxShadow(
+                    color: grediantColor2.withOpacity(0.3),
+                    blurRadius: buttonSize * 0.15, // Dynamic blur radius
+                    spreadRadius: buttonSize * 0.02,
+                    offset: Offset(
+                      buttonSize * 0.08,
+                      buttonSize * 0.08,
+                    ), // Bottom-right shadow
+                  ),
+                ],
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: grediantColor1.withOpacity(0.5),
-                  blurRadius: buttonSize * 0.15,
-                  spreadRadius: buttonSize * 0.02,
-                  offset: Offset(
-                    -buttonSize * 0.04,
-                    -buttonSize * 0.04,
-                  ), // Top-left glow
+              child: Center(
+                child: SvgPicture.asset(
+                  assets,
+                  width: buttonSize * 0.6,
+                  height: buttonSize * 0.65,
                 ),
-                BoxShadow(
-                  color: grediantColor2.withOpacity(0.3),
-                  blurRadius: buttonSize * 0.15, // Dynamic blur radius
-                  spreadRadius: buttonSize * 0.02,
-                  offset: Offset(
-                    buttonSize * 0.08,
-                    buttonSize * 0.08,
-                  ), // Bottom-right shadow
-                ),
-              ],
-            ),
-            child: Center(
-              child: SvgPicture.asset(
-                assets,
-                width: buttonSize * 0.6,
-                height: buttonSize * 0.65,
               ),
             ),
           ),
@@ -70,7 +72,7 @@ class CustomCategoryButton extends StatelessWidget {
         AutoSizeText(
           buttonCategorie,
           maxLines: 1,
-          style: TextStyles.font16GreyBold,
+          style: TextStyles.font16GreyNormal,
         ),
       ],
     );

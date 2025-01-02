@@ -14,6 +14,37 @@ class CustomLatestSectionItems extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
+    return Container(
+      width: screenWidth * 0.9,
+      height: screenHeight * 0.26,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(11),
+        image: const DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            Assets.assetsGiganiga,
+          ),
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: screenHeight * 0.03,
+          horizontal: screenWidth * 0.07,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AutoSizeText(Constants.LATESTSECTION_TEXT_INFO,
+                style: TextStyles.font18WhiteRegular),
+            SizedBox(
+              height: screenHeight * 0.04,
+            ),
+            const SeeMoreBTN(),
+          ],
+        ),
+      ),
+    );
     return ClipRRect(
       borderRadius: BorderRadius.circular(11),
       child: Stack(
@@ -32,10 +63,8 @@ class CustomLatestSectionItems extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AutoSizeText(
-                  Constants.LATESTSECTION_TEXT_INFO,
-                  style: TextStyles.font18WhiteRegular 
-                ),
+                AutoSizeText(Constants.LATESTSECTION_TEXT_INFO,
+                    style: TextStyles.font18WhiteRegular),
                 SizedBox(
                   height: screenHeight * 0.04,
                 ),

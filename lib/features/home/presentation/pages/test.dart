@@ -68,35 +68,37 @@ class HomePageTest extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           horizontal: screenWidth * 0.05,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AutoSizeText(
-              Constants.CATEGORIES,
-              maxLines: 1,
-              style: TextStyles.font35CustomGreyBold,
-            ),
-            SizedBox(
-              height: screenHeight * 0.02,
-            ),
-            const CategoriesRow(),
-            SizedBox(
-              height: screenHeight * 0.025,
-            ),
-            AutoSizeText(
-              Constants.LATEST,
-              maxLines: 1,
-              style: TextStyles.font35CustomGreyBold,
-            ),
-            SizedBox(
-              height: screenHeight * 0.01,
-            ),
-            const CustomLatestSection(),
-            SizedBox(
-              height: screenHeight * 0.03,
-            ),
-            const CustomItemsRow()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AutoSizeText(
+                Constants.CATEGORIES,
+                maxLines: 1,
+                style: TextStyles.font35CustomGreyBold,
+              ),
+              SizedBox(
+                height: screenHeight * 0.02,
+              ),
+              const CategoriesRow(),
+              SizedBox(
+                height: screenHeight * 0.025,
+              ),
+              AutoSizeText(
+                Constants.LATEST,
+                maxLines: 1,
+                style: TextStyles.font35CustomGreyBold,
+              ),
+              SizedBox(
+                height: screenHeight * 0.01,
+              ),
+              const CustomLatestSection(),
+              SizedBox(
+                height: screenHeight * 0.03,
+              ),
+              const CustomItemsRow()
+            ],
+          ),
         ),
       ) ;
   }

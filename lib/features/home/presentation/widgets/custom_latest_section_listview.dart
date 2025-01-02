@@ -11,7 +11,10 @@ class CustomLatestSectionListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       scrollDirection: Axis.horizontal,
-      children: const [CustomLatestSectionItems(), CustomSecondPicture()],
+      children: const [
+        CustomLatestSectionItems(),
+        CustomSecondPicture(),
+      ],
     );
   }
 }

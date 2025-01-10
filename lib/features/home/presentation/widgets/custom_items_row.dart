@@ -19,10 +19,16 @@ class CustomItemsRow extends StatelessWidget {
             itemName: Constants.ANKLE_BOOTS,
             itemPrice: Constants.BOOT_PRICE,
           ),
+          SizedBox(
+            width: 5,
+          ),
           CustomItemsBtn(
             itemPicture: Assets.assetsBackpackPNG6354,
             itemName: Constants.BACKPACK,
             itemPrice: Constants.BACKPACK_PRICE,
+          ),
+          SizedBox(
+            width: 5,
           ),
           CustomItemsBtn(
             itemPicture: Assets.assetsScarfPNG48,

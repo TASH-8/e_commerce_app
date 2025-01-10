@@ -19,42 +19,45 @@ class CustomItemsBtn extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return Center(
-      child: Container(
-        width: screenWidth * 0.35,
-        height: screenHeight * 0.2,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(12),
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Image.asset(
-                width: screenWidth * 0.3,
-                height: screenHeight * 0.11,
-                itemPicture,
-                fit: BoxFit.contain,
-              ),
+    return InkWell(
+      onTap: () {},
+      child: Center(
+        child: Container(
+          width: screenWidth * 0.35,
+          height: screenHeight * 0.2,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(12),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AutoSizeText(
-                  itemName,
-                  style: TextStyles.font14CustomGreyRegular,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Image.asset(
+                  width: screenWidth * 0.3,
+                  height: screenHeight * 0.11,
+                  itemPicture,
+                  fit: BoxFit.contain,
                 ),
-                AutoSizeText(
-                  "${Constants.DOLLARSIGN} $itemPrice",
-                  style: TextStyles.font14CustomGreyBold,
-                ),
-              ],
-            )
-          ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AutoSizeText(
+                    itemName,
+                    style: TextStyles.font14CustomGreyRegular,
+                  ),
+                  AutoSizeText(
+                    "${Constants.DOLLARSIGN} $itemPrice",
+                    style: TextStyles.font14CustomGreyBold,
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

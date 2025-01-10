@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget buildAppBar({
+Widget buildHomeScreenAppBar({
   required double screenWidth,
   required double screenHeight,
   required Color backgroundColor,

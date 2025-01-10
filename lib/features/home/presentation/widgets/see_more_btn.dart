@@ -21,7 +21,9 @@ class SeeMoreBTN extends StatelessWidget {
         color: Colors.white,
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10,
+        ),
         child: Row(
           children: [
             AutoSizeText(
@@ -30,17 +32,19 @@ class SeeMoreBTN extends StatelessWidget {
               style: TextStyles.font14GreyCustomShadeRegular,
             ),
             const Spacer(),
-            Container(
-              width: screenHeight * 0.04,
-              height: screenHeight * 0.04,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: ColorManger.redAccent,
-              ),
-              child: const Icon(
-                Icons.arrow_forward,
-                color: ColorManger.white,
-                size: 16,
+            Flexible(
+              child: Container(
+                width: screenHeight * 0.04,
+                height: screenHeight * 0.04,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: ColorManger.redAccent,
+                ),
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: ColorManger.white,
+                  size: 16,
+                ),
               ),
             ),
           ],

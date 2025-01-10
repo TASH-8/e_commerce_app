@@ -36,5 +36,46 @@ class Constants {
   static const double BOOT_PRICE = 49.99;
   static const double BACKPACK_PRICE = 20.58;
   static const double SCARF_PRICE = 11.00;
-  static const String DOLLARSIGN = "\$" ;
+  static const String DOLLARSIGN = "\$";
+  static const String FAUX_SUED_ANKLE_BOOTS = "Faux Sued Ankle Boots";
+  static const double BOOT_RATING = 4.9;
+
+  // DetailsSection Constants
+  static const String BRAND = 'BRAND';
+  static const String LilysAnkleBoots = "Lily’s Ankle Boots";
+  static const String CONDITION = "CONDITION";
+  static const String BRAND_NEW = "Brand New, With Box";
+  static const String CATEGORY = "CATEGORY";
+  static const String WOMEN_SHOES = "Women Shoes";
+  static const String SKU = 'SKU';
+  static const String SKU_NUMBER = "0590458902809";
+  static const String MATERIAL = "MATERIAL";
+  static const String FAUX_SUED_VELVET = "Faux Sued, Velvet";
+  static const String FITTING = "FITTING";
+  static const String TRUE_TO_SIZE = "True To Size";
+  static const String PRODUCT = "Product";
+  static const String DETAILS = "Details";
+  static const String REVIEW = "Review";
+
+  static const String size4_5 = "4.5";
+  static const String size5_0 = "5.0";
+  static const String size6_5 = "6.5";
+  static const String size7_0 = "7.0";
+  static const String size8_0 = "8.0";
+  static const String SHARETHIS = "SHARE THIS";
+  static const String ADDTOCART = "ADD TO CART";
+  static const String SELECTCOLOR = 'Select Color';
+  static const String SELECTSIZEUS = 'Select Size (US)';
+
+  static const String jdInitials = "JD";
+  static const String jdName = "Jane Don";
+  static const String jdReviewDate = "10 Oct, 2018";
+  static const String jdReviewText =
+      "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit";
+
+  static const String ssInitials = "SS";
+  static const String ssName = "Sam Smith";
+  static const String ssReviewDate = "7 Sep, 2018";
+  static const String ssReviewText =
+      "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit, se";
 }

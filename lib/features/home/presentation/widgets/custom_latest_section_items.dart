@@ -15,65 +15,40 @@ class CustomLatestSectionItems extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return Container(
-      width: screenWidth * 0.9,
-      height: screenHeight * 0.26,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(11),
-        image: const DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage(
-            Assets.assetsGiganiga,
-          ),
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: screenHeight * 0.03,
-          horizontal: screenWidth * 0.07,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AutoSizeText(Constants.LATESTSECTION_TEXT_INFO,
-                style: TextStyles.font18WhiteRegular),
-            SizedBox(
-              height: screenHeight * 0.04,
-            ),
-            const SeeMoreBTN(),
-          ],
-        ),
-      ),
-    );
-    return ClipRRect(
+   return ClipRRect(
+  borderRadius: BorderRadius.circular(11),
+  child: Container(
+    width: screenWidth * 0.9,
+    height: screenHeight * 0.28,
+    decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(11),
-      child: Stack(
+      image: const DecorationImage(
+        fit: BoxFit.cover,
+        image: AssetImage(
+          Assets.assetsGiganiga,
+        ),
+      ),
+    ),
+    child: Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: screenHeight * 0.035,
+        horizontal: screenWidth * 0.05,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            Assets.assetsGiganiga,
-            fit: BoxFit.cover,
-            width: screenWidth * 0.9,
-            height: screenHeight * 0.26,
+          AutoSizeText(
+            Constants.LATESTSECTION_TEXT_INFO,
+            style: TextStyles.font18WhiteRegular,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: screenHeight * 0.03,
-              horizontal: screenWidth * 0.07,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AutoSizeText(Constants.LATESTSECTION_TEXT_INFO,
-                    style: TextStyles.font18WhiteRegular),
-                SizedBox(
-                  height: screenHeight * 0.04,
-                ),
-                const SeeMoreBTN(),
-              ],
-            ),
-          ),
+          const Spacer(),
+          const SeeMoreBTN(),
         ],
       ),
-    );
+    ),
+  ),
+);
   }
 }

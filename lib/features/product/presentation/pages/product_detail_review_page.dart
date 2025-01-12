@@ -35,12 +35,27 @@ class ProductDetailsReviewSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            buildTab(Constants.PRODUCT, 0, screenWidth, activePageNotifier,
-                onTabPressed),
-            buildTab(Constants.DETAILS, 1, screenWidth, activePageNotifier,
-                onTabPressed),
-            buildTab(Constants.REVIEW, 2, screenWidth, activePageNotifier,
-                onTabPressed),
+            NewWidget(
+              text: Constants.PRODUCT,
+              page: 0,
+              screenWidth: screenWidth,
+              activePageNotifier: activePageNotifier,
+              onTabPressed: onTabPressed,
+            ),
+            NewWidget(
+              text: Constants.DETAILS,
+              page: 1,
+              screenWidth: screenWidth,
+              activePageNotifier: activePageNotifier,
+              onTabPressed: onTabPressed,
+            ),
+            NewWidget(
+              text: Constants.REVIEW,
+              page: 2,
+              screenWidth: screenWidth,
+              activePageNotifier: activePageNotifier,
+              onTabPressed: onTabPressed,
+            ),
           ],
         ),
         SizedBox(

@@ -4,7 +4,7 @@ import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/core/widgets/login_forgot_row.dart';
 import 'package:e_commerce_app/core/widgets/signup_login_btn_forgot.dart';
 import 'package:e_commerce_app/features/forget_reset/presentation/widgets/terms_and_policy_btn.dart';
-import 'package:e_commerce_app/core/widgets/textFields.dart';
+import 'package:e_commerce_app/core/widgets/text_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 

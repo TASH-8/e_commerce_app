@@ -2,13 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
-import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/categories_row.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/custom_items_row.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/custom_latest_section.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

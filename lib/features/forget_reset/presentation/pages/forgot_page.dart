@@ -5,7 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/features/forget_reset/presentation/widgets/terms_and_policy_btn.dart';
-import 'package:e_commerce_app/core/widgets/textFields.dart';
+import 'package:e_commerce_app/core/widgets/text_fields.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});

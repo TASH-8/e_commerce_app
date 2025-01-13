@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
-import 'package:e_commerce_app/features/login/presentation/widgets/textBtn_login.dart';
+import 'package:e_commerce_app/features/login/presentation/widgets/text_btn_login.dart';
 import 'package:flutter/material.dart';
 
 class CustomLoginAndForgotRow extends StatelessWidget {

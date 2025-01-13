@@ -5,7 +5,6 @@ import 'package:e_commerce_app/features/product/presentation/widgets/app_bar_bui
 import 'package:e_commerce_app/features/product/presentation/widgets/price_and_rating.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/share_add_btn.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductPreviewScreen extends StatelessWidget {

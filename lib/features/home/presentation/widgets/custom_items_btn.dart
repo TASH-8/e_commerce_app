@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
-import 'package:e_commerce_app/features/product/presentation/pages/product_preview_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +32,7 @@ class CustomItemsBtn extends StatelessWidget {
                     itemPrice: itemPrice,
                   ),
                 );
-            print(state.itemPicture);
+            // print(state.itemPicture);
 
             // Navigator.of(context).push(MaterialPageRoute(
             //     builder: (context) => const ProductPreviewScreen()));

@@ -2,7 +2,7 @@
 
 import 'package:e_commerce_app/features/forget_reset/presentation/pages/forgot_page.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homescreen.dart';
-import 'package:e_commerce_app/features/home/presentation/widgets/customCategoryBtn.dart';
+import 'package:e_commerce_app/features/home/presentation/widgets/custom_category_btn.dart';
 import 'package:e_commerce_app/features/login/presentation/pages/login_page.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/detail_section.dart';

@@ -1,10 +1,12 @@
 import 'package:e_commerce_app/core/app_images/app_images.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
+import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/pages/product_detail_review_page.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/app_bar_builder.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/price_and_rating.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/share_add_btn.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductPreviewScreen extends StatelessWidget {
@@ -30,7 +32,7 @@ class ProductPreviewScreen extends StatelessWidget {
               SizedBox(
                 height: screenHeight * 0.025,
               ),
-    
+
               // Page Indicator
               SmoothPageIndicator(
                 controller: PageController(),
@@ -41,12 +43,25 @@ class ProductPreviewScreen extends StatelessWidget {
                   spacing: 6,
                 ),
               ),
-    
+
               // Product Image
-              Image.asset(
-                Assets.assetsBoots,
-                height: screenHeight * 0.42,
-                width: screenWidth * 0.73,
+              BlocBuilder<ProductBloc, ProductState>(
+                builder: (context, state) {
+                  print("==================================================");
+                  print(state.itemPicture);
+                  print("==================================================");
+                  if (state.status == ProductStatus.loaded) {
+                    return Image.asset(
+                      state.itemPicture!,
+                      height: screenHeight * 0.42,
+                      width: screenWidth * 0.73,
+                    );
+                  } else {
+                    return const Center(
+                      child: Text("Error to load"),
+                    );
+                  }
+                },
               ),
               SizedBox(
                 height: screenHeight * 0.02,

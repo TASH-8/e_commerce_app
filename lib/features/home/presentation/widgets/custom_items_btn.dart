@@ -5,6 +5,8 @@ import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../product/presentation/pages/product_preview_page.dart';
+
 class CustomItemsBtn extends StatelessWidget {
   const CustomItemsBtn({
     super.key,
@@ -21,63 +23,57 @@ class CustomItemsBtn extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    return BlocBuilder<ProductBloc, ProductState>(
-      builder: (context, state) {
-        return InkWell(
-          onTap: () {
-            context.read<ProductBloc>().add(
-                  GetProductDetailEvent(
-                    itemName: itemName,
-                    itemPicture: itemPicture,
-                    itemPrice: itemPrice,
-                  ),
-                );
-            // print(state.itemPicture);
-
-            // Navigator.of(context).push(MaterialPageRoute(
-            //     builder: (context) => const ProductPreviewScreen()));
-          },
-          child: Center(
-            child: Container(
-              width: screenWidth * 0.35,
-              height: screenHeight * 0.2,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(12),
-                ),
+    return InkWell(
+      onTap: () {
+        context.read<ProductBloc>().add(
+              GetProductDetailEvent(
+                itemName: itemName,
+                itemPicture: itemPicture,
+                itemPrice: itemPrice,
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Image.asset(
-                      width: screenWidth * 0.3,
-                      height: screenHeight * 0.11,
-                      itemPicture,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AutoSizeText(
-                        itemName,
-                        style: TextStyles.font14CustomGreyRegular,
-                      ),
-                      AutoSizeText(
-                        "${Constants.DOLLARSIGN} $itemPrice",
-                        style: TextStyles.font14CustomGreyBold,
-                      ),
-                    ],
-                  )
-                ],
-              ),
+            );
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ProductPreviewScreen()));
+      },
+      child: Center(
+        child: Container(
+          width: screenWidth * 0.35,
+          height: screenHeight * 0.2,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(12),
             ),
           ),
-        );
-      },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Image.asset(
+                  width: screenWidth * 0.3,
+                  height: screenHeight * 0.11,
+                  itemPicture,
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AutoSizeText(
+                    itemName,
+                    style: TextStyles.font14CustomGreyRegular,
+                  ),
+                  AutoSizeText(
+                    "${Constants.DOLLARSIGN} $itemPrice",
+                    style: TextStyles.font14CustomGreyBold,
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

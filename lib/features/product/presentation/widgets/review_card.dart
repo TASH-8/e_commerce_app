@@ -28,6 +28,7 @@ class ReviewCard extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return SingleChildScrollView(
+physics: NeverScrollableScrollPhysics(),
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [

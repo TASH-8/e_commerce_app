@@ -8,13 +8,11 @@ class ColorsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          ColorContainers(),
-        ],
-      ),
+    final screenWidth = MediaQuery.of(context).size.width;
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
+      child:  ColorsContainers(screenWidth: screenWidth),
     );
   }
 }
+

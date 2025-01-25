@@ -33,11 +33,11 @@ class Constants {
       "For all your \nsummer clothing \nneeds";
   static const String SEE_MORE = "SEE MORE";
   static const String ANKLE_BOOTS = "Ankle Boots";
-  static const String BACKPACK = "Backpack";
-  static const String RED_SCARF = "Red Scarf";
+  static const String RED_BACKPACK = "Red Backpack";
+  static const String BROWN_SCARF = "Brown Scarf";
   static const double BOOT_PRICE = 49.99;
   static const double BACKPACK_PRICE = 20.58;
-  static const double SCARF_PRICE = 11.00;
+  static const double SCARF_PRICE = 11.01;
   static const String DOLLARSIGN = "\$";
   static const String FAUX_SUED_ANKLE_BOOTS = "Faux Sued Ankle Boots";
   static const double BOOT_RATING = 4.9;
@@ -80,4 +80,5 @@ class Constants {
   static const String ssReviewDate = "7 Sep, 2018";
   static const String ssReviewText =
       "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit, se";
+      static const String ERRRTOLOAD = "Error to load";
 }

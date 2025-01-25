@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/colors_section.dart';
+import 'package:e_commerce_app/features/product/presentation/widgets/side_custom_padding.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/sizes_section.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class ProductSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
       child: Padding(
         padding: EdgeInsets.symmetric(
           vertical: screenHeight * 0.02,
@@ -20,9 +22,11 @@ class ProductSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // "Select Color" Section
-            const AutoSizeText(
-              Constants.SELECTCOLOR,
-              style: TextStyles.font17GreyBold,
+            const SidesCustomPadding(
+              child: AutoSizeText(
+                Constants.SELECTCOLOR,
+                style: TextStyles.font17GreyBold,
+              ),
             ),
             SizedBox(height: screenHeight * 0.01),
 
@@ -32,9 +36,11 @@ class ProductSection extends StatelessWidget {
             SizedBox(height: screenHeight * 0.02),
 
             // "Select Size" Section
-            const AutoSizeText(
-              Constants.SELECTSIZEUS,
-              style: TextStyles.font17GreyBold,
+            const SidesCustomPadding(
+              child: AutoSizeText(
+                Constants.SELECTSIZEUS,
+                style: TextStyles.font17GreyBold,
+              ),
             ),
             SizedBox(height: screenHeight * 0.01),
 

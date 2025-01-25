@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import 'package:e_commerce_app/core/routing/app_router.dart';
 import 'package:e_commerce_app/features/forget_reset/presentation/pages/forgot_page.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homescreen.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/custom_category_btn.dart';
@@ -28,10 +29,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>  ProductBloc(),
-      child: const MaterialApp(
+      create: (context) => ProductBloc(),
+      child: MaterialApp.router(
+        routerConfig: AppRouter().router,
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
       ),
     );
   }

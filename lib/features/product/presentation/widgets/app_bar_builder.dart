@@ -1,34 +1,52 @@
-import 'package:e_commerce_app/core/utils/constants.dart';
+import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-/// Function that builds and returns the AppBar
-AppBar buildAppBar(double screenWidth) {
+// / Function that builds and returns the AppBar
+AppBar buildAppBar(double screenWidth, BuildContext context) {
   return AppBar(
+    automaticallyImplyLeading: false,
     backgroundColor: Colors.transparent,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         // Back Button
-        Icon(
-          Icons.arrow_back,
+        IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            size: screenWidth * 0.075,
+          ),
           color: ColorManger.redAccent,
-          size: screenWidth * 0.075,
+          onPressed: () {
+            context.pop('/');
+          },
         ),
-    
+
         // Title
         Flexible(
-          child: AutoSizeText(
-            Constants.FAUX_SUED_ANKLE_BOOTS,
-            style: TextStyles.font18CustomGreyLight,
-            maxLines: 1,
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
+          child: BlocBuilder<ProductBloc, ProductState>(
+            builder: (context, state) {
+              if (state.status == ProductStatus.loaded) {
+                return AutoSizeText(
+                  state.itemName!,
+                  style: TextStyles.font18CustomGreyLight,
+                  maxLines: 1,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                );
+              } else {
+                return const Center(
+                  child: Text("erro"),
+                );
+              }
+            },
           ),
         ),
-    
+
         // Cart Icon
         Icon(
           Icons.shopping_cart_outlined,

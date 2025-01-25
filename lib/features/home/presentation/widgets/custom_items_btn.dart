@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../product/presentation/pages/product_preview_page.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomItemsBtn extends StatelessWidget {
   const CustomItemsBtn({
@@ -32,15 +32,14 @@ class CustomItemsBtn extends StatelessWidget {
                 itemPrice: itemPrice,
               ),
             );
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const ProductPreviewScreen()));
+        context.push('/product');
       },
       child: Center(
         child: Container(
           width: screenWidth * 0.35,
           height: screenHeight * 0.2,
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: ColorManger.white,
             borderRadius: BorderRadius.vertical(
               top: Radius.circular(12),
             ),
@@ -61,10 +60,12 @@ class CustomItemsBtn extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AutoSizeText(
+                    maxLines: 1,
                     itemName,
                     style: TextStyles.font14CustomGreyRegular,
                   ),
                   AutoSizeText(
+                    maxLines: 1,
                     "${Constants.DOLLARSIGN} $itemPrice",
                     style: TextStyles.font14CustomGreyBold,
                   ),

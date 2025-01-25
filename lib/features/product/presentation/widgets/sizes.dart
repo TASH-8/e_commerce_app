@@ -23,24 +23,16 @@ class SizeContainers extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         sizeList.length,
-        (index) => Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: ColorManger.white,
-              ),
-              height: screenHeight * 0.05,
-              width: screenWidth * 0.2,
-              child: Center(
-                child: Text(sizeList[index]),
-              ),
-            ),
-            if (index != sizeList.length - 1)
-              SizedBox(
-                width: screenWidth * 0.04,
-              ),
-          ],
+        (index) => Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: ColorManger.white,
+          ),
+          height: screenHeight * 0.05,
+          width: screenWidth * 0.2,
+          child: Center(
+            child: Text(sizeList[index]),
+          ),
         ),
       ),
     );

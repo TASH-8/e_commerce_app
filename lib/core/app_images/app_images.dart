@@ -22,6 +22,10 @@ class Assets {
   /// assets/beautyicons.svg
   static const String assetsBeautyicons = "assets/beautyicons.svg";
 
+  /// Assets for assetsBlueScarf
+  /// assets/blue_scarf.png
+  static const String assetsBlueScarf = "assets/blue_scarf.png";
+
   /// Assets for assetsBoots
   /// assets/boots.png
   static const String assetsBoots = "assets/boots.png";
@@ -33,6 +37,14 @@ class Assets {
   /// Assets for assetsMdry
   /// assets/mdry.png
   static const String assetsMdry = "assets/mdry.png";
+
+  /// Assets for assetsRedBackpack
+  /// assets/red_backpack.png
+  static const String assetsRedBackpack = "assets/red_backpack.png";
+
+  /// Assets for assetsScarfPNG25
+  /// assets/scarf_PNG25.png
+  static const String assetsScarfPNG25 = "assets/scarf_PNG25.png";
 
   /// Assets for assetsScarfPNG48
   /// assets/scarf_PNG48.png

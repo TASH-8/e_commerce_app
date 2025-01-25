@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:flutter/material.dart';
 
 Widget buildHomeScreenAppBar({
@@ -6,7 +7,7 @@ Widget buildHomeScreenAppBar({
   required Color backgroundColor,
 }) {
   return AppBar(
-    backgroundColor: backgroundColor,
+    backgroundColor: ColorManger.transparent,
     actions: [
       Padding(
         padding: EdgeInsets.symmetric(

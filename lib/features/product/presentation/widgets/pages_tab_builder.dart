@@ -5,12 +5,12 @@ import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/theming/font_weight_helper.dart';
 
 Widget buildTab({
- required String text,
- required int page,
- required double screenWidth,
- required ValueNotifier<int> activePageNotifier,
- required Function(int) onTabPressed,}
-) {
+  required String text,
+  required int page,
+  required double screenWidth,
+  required ValueNotifier<int> activePageNotifier,
+  required Function(int) onTabPressed,
+}) {
   return ValueListenableBuilder<int>(
     valueListenable: activePageNotifier,
     builder: (context, activePage, _) {
@@ -42,14 +42,14 @@ Widget buildTab({
   );
 }
 
-class NewWidget extends StatelessWidget {
+class PagesTabBuilder extends StatelessWidget {
   final String text;
   final int page;
   final double screenWidth;
   final ValueNotifier<int> activePageNotifier;
   final Function(int) onTabPressed;
 
-  const NewWidget({
+  const PagesTabBuilder({
     super.key,
     required this.text,
     required this.page,

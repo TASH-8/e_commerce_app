@@ -30,9 +30,21 @@ class Assets {
   /// assets/boots.png
   static const String assetsBoots = "assets/boots.png";
 
+  /// Assets for assetsElectronics
+  /// assets/electronics.svg
+  static const String assetsElectronics = "assets/electronics.svg";
+
+  /// Assets for assetsFurniture
+  /// assets/furniture.svg
+  static const String assetsFurniture = "assets/furniture.svg";
+
   /// Assets for assetsGiganiga
   /// assets/giganiga.png
   static const String assetsGiganiga = "assets/giganiga.png";
+
+  /// Assets for assetsHome
+  /// assets/home.svg
+  static const String assetsHome = "assets/home.svg";
 
   /// Assets for assetsMdry
   /// assets/mdry.png
@@ -53,6 +65,10 @@ class Assets {
   /// Assets for assetsShoesicon
   /// assets/shoesicon.svg
   static const String assetsShoesicon = "assets/shoesicon.svg";
+
+  /// Assets for assetsStationary
+  /// assets/stationary.svg
+  static const String assetsStationary = "assets/stationary.svg";
 
   /// Assets for assetsWomenShoesPNG7464
   /// assets/women_shoes_PNG7464.png

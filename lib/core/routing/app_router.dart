@@ -2,6 +2,7 @@ import 'package:e_commerce_app/features/forget_reset/presentation/pages/forgot_p
 import 'package:e_commerce_app/features/home/presentation/pages/homescreen.dart';
 import 'package:e_commerce_app/features/login/presentation/pages/login_page.dart';
 import 'package:e_commerce_app/features/product/presentation/pages/product_preview_page.dart';
+import 'package:e_commerce_app/features/categories/presentation/pages/categories_page.dart';
 import 'package:e_commerce_app/features/signup/presentation/pages/signup_page.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,6 +27,10 @@ class AppRouter {
     GoRoute(
       path: '/forget',
       builder: (context, state) => const ForgotPasswordScreen(),
+    ),
+    GoRoute(
+      path: '/categories', // Add leading slash here
+      builder: (context, state) => const CategoriesPage(),
     ),
   ]);
 }

@@ -23,4 +23,20 @@ class ColorManger {
   static const Color profileBackground1 = Color(0xffB7E6E6);
   static const Color profileBackground2 = Color(0xffC4E6B7);
   static const Color redAccentCustom = Color(0xFFFF6969);
+  // New colors from CatogoriesPage
+  static const Color apparelGradient1 = Color(0xffFFAE4E);
+  static const Color apparelGradient2 = Color(0xffFF7676);
+  static const Color beautyGradient1 = Color(0xff4EFFF8);
+  static const Color beautyGradient2 = Color(0xff76BAFF);
+  static const Color shoesGradient1 = Color(0xffB4FF4E);
+  static const Color shoesGradient2 = Color(0xff37C546);
+  static const Color electronicsGradient1 = Color(0xffD0A3FF);
+  static const Color electronicsGradient2 = Color(0xff77A5F8);
+  static const Color furnitureGradient1 = Color(0xffF5DC53);
+  static const Color furnitureGradient2 = Color(0xffE6B15C);
+  static const Color homeGradient1 = Color(0xffFF74A4);
+  static const Color homeGradient2 = Color(0xff9F6EA3);
+  static const Color stationaryGradient1 = Color(0xff9D9E9F);
+  static const Color stationaryGradient2 = Color(0xff505862);
+
 }

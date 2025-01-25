@@ -80,5 +80,13 @@ class Constants {
   static const String ssReviewDate = "7 Sep, 2018";
   static const String ssReviewText =
       "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit, se";
-      static const String ERRRTOLOAD = "Error to load";
+  static const String ERRRTOLOAD = "Error to load";
+  static const String ALLCATOGORIES = "All Categories";
+
+  static const String ELECTRONICS = "Electronics";
+  static const String FURNITURE = "Furniture";
+  static const String HOME = "Home";
+  static const String STATIONARY = "Stationary";
+  static const String WOMENAPPAREL = "Women's Apparel";
+  static const String MENAPPAREL = "Men's Apparel";
 }

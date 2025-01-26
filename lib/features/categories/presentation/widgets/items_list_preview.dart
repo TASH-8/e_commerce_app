@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:flutter/material.dart';
 
 class ItemsListPreview extends StatefulWidget {
@@ -94,9 +95,10 @@ class _ItemsListPreviewState extends State<ItemsListPreview> {
                       padding: const EdgeInsets.all(8),
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.grey,
+                        color: ColorManger.greyCustom,
                       ),
                       child: const Icon(
+                        color: ColorManger.customGrey2,
                         Icons.arrow_forward_ios,
                         size: 10,
                       ),

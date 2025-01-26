@@ -7,7 +7,7 @@ class Constants {
   static const String LOGIN = 'Log in';
   static const String SINGUPcap = 'SIGN UP';
   static const String EMAILTEXTHINT = 'example123@gmail.com';
-  static const String USERNAME = 'user123';
+  static const String USER123 = 'user123';
   static const String PASSWORD = '************';
   static const String ByCreatingAnAcoount =
       "By creating an account, you agree to our";
@@ -89,4 +89,19 @@ class Constants {
   static const String STATIONARY = "Stationary";
   static const String WOMENAPPAREL = "Women's Apparel";
   static const String MENAPPAREL = "Men's Apparel";
+  static const String USERNAME = "User Name";
+  static const String EDITPROFILE = "EDIT PROFILE";
+
+
+
+    static const String allMyOrders = 'All My Orders';
+  static const String pendingShipments = 'Pending Shipments';
+  static const String pendingPayments = 'Pending Payments';
+  static const String finishedOrders = 'Finished Orders';
+
+  // Profile Actions
+  static const String inviteFriends = 'Invite Friends';
+  static const String customerSupport = 'Customer Support';
+  static const String rateOurApp = 'Rate Our App';
+  static const String makeASuggestion = 'Make a Suggestion';
 }

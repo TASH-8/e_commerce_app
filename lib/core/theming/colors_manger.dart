@@ -38,5 +38,5 @@ class ColorManger {
   static const Color homeGradient2 = Color(0xff9F6EA3);
   static const Color stationaryGradient1 = Color(0xff9D9E9F);
   static const Color stationaryGradient2 = Color(0xff505862);
-
+  static const Color customGrey2 = Color(0xff727C8E);
 }

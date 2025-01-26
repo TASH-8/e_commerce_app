@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 // / Function that builds and returns the AppBar
-AppBar buildAppBar(double screenWidth, BuildContext context) {
+AppBar buildAppBar(BuildContext context) {
+  final screenWidth = MediaQuery.of(context).size.width;
   return AppBar(
     automaticallyImplyLeading: false,
     backgroundColor: Colors.transparent,

@@ -22,7 +22,7 @@ class SeeAllBtn extends StatelessWidget {
       children: [
         Center(
           child: InkWell(
-            borderRadius: BorderRadius.circular(23),
+            borderRadius: BorderRadius.circular(100),
             onTap: () => context.push('/categories'),
             child: Container(
               width: buttonSize,

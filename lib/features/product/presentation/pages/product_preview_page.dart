@@ -13,10 +13,9 @@ class ProductPreviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PageController controller = PageController(initialPage: 0);
-    final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: buildAppBar(screenWidth, context),
+      appBar: buildAppBar(context),
       backgroundColor: ColorManger.greyshade100,
       body: Stack(
         children: [
@@ -33,12 +32,11 @@ class ProductPreviewScreen extends StatelessWidget {
                 SmoothPageIndicator(
                   controller: controller,
                   count: 3,
-                  effect:  SlideEffect(
-                    dotHeight: 7,
-                    dotWidth: 7,
-                    spacing: 6,
-                    activeDotColor: ColorManger.blackCustom
-                  ),
+                  effect: SlideEffect(
+                      dotHeight: 7,
+                      dotWidth: 7,
+                      spacing: 6,
+                      activeDotColor: ColorManger.blackCustom),
                 ),
 
                 // Product Image
@@ -53,7 +51,6 @@ class ProductPreviewScreen extends StatelessWidget {
           const ShareAddtocartBTN()
         ],
       ),
-
     );
   }
 }

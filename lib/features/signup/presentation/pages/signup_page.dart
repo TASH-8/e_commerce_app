@@ -53,7 +53,7 @@ class SignUpScreen extends StatelessWidget {
                 // Username TextField
                 Textfields(
                   icon: Icons.person,
-                  hintText: Constants.USERNAME,
+                  hintText: Constants.USER123,
                   screenHeight: screenHeight,
                 ),
                 SizedBox(height: screenHeight * 0.02),

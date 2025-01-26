@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homepage.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder.dart';
+import 'package:e_commerce_app/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,23 +19,19 @@ class _HomeScreenState extends State<HomeScreen> {
     const HomePage(),
     const Center(child: Text('Search Page')),
     const Center(child: Text('Cart Page')),
-    const Center(child: Text('Profile Page')),
+    const ProfileScreen(),
     const Center(child: Text('More Options Page')),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: ColorManger.greyshade100,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: buildHomeScreenAppBar(
-          screenWidth: screenWidth,
-          screenHeight: screenHeight,
           backgroundColor: Colors.grey.shade100,
+          context: context,
         ),
       ),
       body: _pages[

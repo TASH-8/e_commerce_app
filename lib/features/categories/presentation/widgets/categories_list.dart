@@ -21,10 +21,10 @@ class _CategoriesListState extends State<CategoriesList>
   void initState() {
     super.initState();
 
-    // Initialize the animation controller
+    // Initialize the animation controller with a longer duration
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 2000), // Slowed down duration
     );
 
     // Define staggered animations for each button

@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/features/categories/presentation/widgets/items.dart';
-import 'package:e_commerce_app/features/categories/presentation/widgets/men_apparells.dart';
+import 'package:e_commerce_app/features/categories/presentation/widgets/men_women_apparells.dart';
 import 'package:flutter/material.dart';
 
 class MenAndWomenListPreview extends StatelessWidget {

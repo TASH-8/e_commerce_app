@@ -79,6 +79,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorManger.greyCustomShade,
   );
+  static TextStyle font16CustomGreyBold = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorManger.greyCustomShade,
+  );
 
   static TextStyle font18CustomGreyLight = TextStyle(
     fontSize: 18,

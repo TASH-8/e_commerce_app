@@ -1,14 +1,76 @@
-import 'package:e_commerce_app/core/app_images/app_images.dart';
-import 'package:e_commerce_app/core/theming/colors_manger.dart';
-import 'package:e_commerce_app/core/utils/constants.dart';
-import 'package:e_commerce_app/core/widgets/custom_category_btn.dart';
+import 'package:e_commerce_app/features/categories/presentation/widgets/animated_category_btns_list.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/side_custom_padding.dart';
 import 'package:flutter/material.dart';
 
-class CategoriesList extends StatelessWidget {
+class CategoriesList extends StatefulWidget {
   const CategoriesList({
     super.key,
   });
+
+  @override
+  _CategoriesListState createState() => _CategoriesListState();
+}
+
+class _CategoriesListState extends State<CategoriesList>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late List<Animation<double>> _scaleAnimations;
+  late List<Animation<double>> _fadeAnimations;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Initialize the animation controller
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 800),
+    );
+
+    // Define staggered animations for each button
+    _scaleAnimations = List.generate(
+      7, // Number of buttons
+      (index) => Tween<double>(
+        begin: 0.5, // Start scaled down
+        end: 1.0, // End at normal size
+      ).animate(
+        CurvedAnimation(
+          parent: _controller,
+          curve: Interval(
+            index * 0.1, // Staggered delay
+            1.0,
+            curve: Curves.elasticOut, // Bouncy scaling effect
+          ),
+        ),
+      ),
+    );
+
+    _fadeAnimations = List.generate(
+      7, // Number of buttons
+      (index) => Tween<double>(
+        begin: 0.0, // Start fully transparent
+        end: 1.0, // End fully opaque
+      ).animate(
+        CurvedAnimation(
+          parent: _controller,
+          curve: Interval(
+            index * 0.1, // Staggered delay
+            1.0,
+            curve: Curves.easeOut,
+          ),
+        ),
+      ),
+    );
+
+    // Start the animation
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,70 +82,10 @@ class CategoriesList extends StatelessWidget {
       ),
       child: SingleChildScrollView(
         child: SidesCustomPadding(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, // Align to the left
-            children: [
-              const CustomCategoryButton(
-                grediantColor1: ColorManger.apparelGradient1,
-                grediantColor2: ColorManger.apparelGradient2,
-                assets: Assets.assetsApparelicon,
-                buttonCategorie: Constants.APPAREL,
-              ),
-              SizedBox(
-                height: screenHeight * 0.02,
-              ),
-              const CustomCategoryButton(
-                grediantColor1: ColorManger.beautyGradient1,
-                grediantColor2: ColorManger.beautyGradient2,
-                assets: Assets.assetsBeautyicons,
-                buttonCategorie: Constants.BEAUTY,
-              ),
-              SizedBox(
-                height: screenHeight * 0.02,
-              ),
-              const CustomCategoryButton(
-                grediantColor1: ColorManger.shoesGradient1,
-                grediantColor2: ColorManger.shoesGradient2,
-                assets: Assets.assetsShoesicon,
-                buttonCategorie: Constants.SHOES,
-              ),
-              SizedBox(
-                height: screenHeight * 0.02,
-              ),
-              const CustomCategoryButton(
-                grediantColor1: ColorManger.electronicsGradient1,
-                grediantColor2: ColorManger.electronicsGradient2,
-                assets: Assets.assetsElectronics,
-                buttonCategorie: Constants.ELECTRONICS,
-              ),
-              SizedBox(
-                height: screenHeight * 0.02,
-              ),
-              const CustomCategoryButton(
-                grediantColor1: ColorManger.furnitureGradient1,
-                grediantColor2: ColorManger.furnitureGradient2,
-                assets: Assets.assetsFurniture,
-                buttonCategorie: Constants.FURNITURE,
-              ),
-              SizedBox(
-                height: screenHeight * 0.02,
-              ),
-              const CustomCategoryButton(
-                grediantColor1: ColorManger.homeGradient1,
-                grediantColor2: ColorManger.homeGradient2,
-                assets: Assets.assetsHome,
-                buttonCategorie: Constants.HOME,
-              ),
-              SizedBox(
-                height: screenHeight * 0.02,
-              ),
-              const CustomCategoryButton(
-                grediantColor1: ColorManger.stationaryGradient1,
-                grediantColor2: ColorManger.stationaryGradient2,
-                assets: Assets.assetsStationary,
-                buttonCategorie: Constants.STATIONARY,
-              ),
-            ],
+          child: AnimatedCategoryButtonLists(
+            scaleAnimations: _scaleAnimations,
+            fadeAnimations: _fadeAnimations,
+            screenHeight: screenHeight,
           ),
         ),
       ),

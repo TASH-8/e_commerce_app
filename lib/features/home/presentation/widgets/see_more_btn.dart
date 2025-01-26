@@ -19,7 +19,7 @@ class SeeMoreBTN extends StatelessWidget {
       width: screenWidth * 0.4, // Adjust width proportionally
       height: screenHeight * 0.05, // Adjust height proportionally
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(40),
         color: Colors.white,
       ),
       child: Padding(
@@ -39,10 +39,10 @@ class SeeMoreBTN extends StatelessWidget {
               height: screenHeight * 0.04,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: ColorManger.redAccent,
+                color: ColorManger.redAccentCustom,
               ),
               child: const Icon(
-                Icons.arrow_forward,
+                Icons.arrow_forward_ios,
                 color: ColorManger.white,
                 size: 16,
               ),

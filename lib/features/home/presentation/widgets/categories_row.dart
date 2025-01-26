@@ -5,54 +5,6 @@ import 'package:e_commerce_app/core/widgets/custom_category_btn.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/see_all_btn.dart';
 import 'package:flutter/material.dart';
 
-// class CategoriesRow extends StatelessWidget {
-//   const CategoriesRow({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final screenWidth = MediaQuery.of(context).size.width;
-
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//       children: [
-//         CustomCategoryButton(
-//           grediantColor1: ColorManger.orangeFade,
-//           grediantColor2: ColorManger.redFade,
-//           assets: Assets.assetsApparelicon,
-//           buttonCategorie: Constants.APPAREL,
-//         ),
-//         SizedBox(
-//           width: screenWidth * 0.05,
-//         ),
-//         CustomCategoryButton(
-//           grediantColor1: ColorManger.lightTurquoiseFade,
-//           grediantColor2: ColorManger.oeeperBlueFade,
-//           assets: Assets.assetsBeautyicons,
-//           buttonCategorie: Constants.BEAUTY,
-//         ),
-//         SizedBox(
-//           width: screenWidth * 0.05,
-//         ),
-//         CustomCategoryButton(
-//           grediantColor1: ColorManger.greenFade,
-//           grediantColor2: ColorManger.deeperGreenFade,
-//           assets: Assets.assetsShoesicon,
-//           buttonCategorie: Constants.SHOES,
-//         ),
-//         SizedBox(
-//           width: screenWidth * 0.05,
-//         ),
-//         const Flexible(
-//           child: SeeAllBtn(
-//             buttonCategorie: Constants.SEEALL,
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }
 class CategoriesRow extends StatelessWidget {
   const CategoriesRow({
     super.key,
@@ -69,23 +21,23 @@ class CategoriesRow extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CustomCategoryButton(
-              grediantColor1: ColorManger.orangeFade,
-              grediantColor2: ColorManger.redFade,
+            const CustomCategoryButton(
+              grediantColor1: ColorManger.apparelGradient1,
+              grediantColor2: ColorManger.apparelGradient2,
               assets: Assets.assetsApparelicon,
               buttonCategorie: Constants.APPAREL,
             ),
             SizedBox(width: screenWidth * 0.05),
-            CustomCategoryButton(
-              grediantColor1: ColorManger.lightTurquoiseFade,
-              grediantColor2: ColorManger.oeeperBlueFade,
+            const CustomCategoryButton(
+              grediantColor1: ColorManger.beautyGradient1,
+              grediantColor2: ColorManger.beautyGradient2,
               assets: Assets.assetsBeautyicons,
               buttonCategorie: Constants.BEAUTY,
             ),
             SizedBox(width: screenWidth * 0.05),
-            CustomCategoryButton(
-              grediantColor1: ColorManger.greenFade,
-              grediantColor2: ColorManger.deeperGreenFade,
+            const CustomCategoryButton(
+              grediantColor1: ColorManger.shoesGradient1,
+              grediantColor2: ColorManger.shoesGradient2,
               assets: Assets.assetsShoesicon,
               buttonCategorie: Constants.SHOES,
             ),

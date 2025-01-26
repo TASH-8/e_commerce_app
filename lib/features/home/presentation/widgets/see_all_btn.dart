@@ -18,11 +18,12 @@ class SeeAllBtn extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
     final double buttonSize = screenWidth * 0.2;
-    return InkWell(
-      onTap: () => context.push('/categories'),
-      child: Column(
-        children: [
-          Center(
+    return Column(
+      children: [
+        Center(
+          child: InkWell(
+            borderRadius: BorderRadius.circular(23),
+            onTap: () => context.push('/categories'),
             child: Container(
               width: buttonSize,
               height: buttonSize,
@@ -54,16 +55,16 @@ class SeeAllBtn extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            height: screenHeight * 0.01,
-          ),
-          AutoSizeText(
-            buttonCategorie,
-            maxLines: 1,
-            style: TextStyles.font16GreyNormal,
-          ),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: screenHeight * 0.01,
+        ),
+        AutoSizeText(
+          buttonCategorie,
+          maxLines: 1,
+          style: TextStyles.font16GreyNormal,
+        ),
+      ],
     );
   }
 }

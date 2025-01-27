@@ -84,6 +84,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorManger.greyCustomShade,
   );
+  static const TextStyle font16RedAccentNormal = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorManger.redAccentCustom,
+  );
 
   static TextStyle font18CustomGreyLight = TextStyle(
     fontSize: 18,

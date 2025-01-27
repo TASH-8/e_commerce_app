@@ -3,19 +3,19 @@ import 'package:e_commerce_app/features/profile/presentation/widgets/actions_til
 import 'package:e_commerce_app/features/profile/presentation/widgets/order_profile_items.dart';
 import 'package:flutter/material.dart';
 
-class OrderProfileActions extends StatefulWidget {
-  final List<OrderItem> orderItems;
+class CustomListTilesActions extends StatefulWidget {
+  final List<OrderAndMoreItems> items;
 
-  const OrderProfileActions({
+  const CustomListTilesActions({
     super.key,
-    required this.orderItems,
+    required this.items,
   });
 
   @override
-  _OrderProfileActionsState createState() => _OrderProfileActionsState();
+  _CustomListTilesActionsState createState() => _CustomListTilesActionsState();
 }
 
-class _OrderProfileActionsState extends State<OrderProfileActions>
+class _CustomListTilesActionsState extends State<CustomListTilesActions>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late List<Animation<Offset>> _slideAnimations;
@@ -33,7 +33,7 @@ class _OrderProfileActionsState extends State<OrderProfileActions>
 
     // Define staggered animations for each item
     _slideAnimations = List.generate(
-      widget.orderItems.length,
+      widget.items.length,
       (index) => Tween<Offset>(
         begin: const Offset(-1, 0), // Slide from the left
         end: Offset.zero,
@@ -50,7 +50,7 @@ class _OrderProfileActionsState extends State<OrderProfileActions>
     );
 
     _fadeAnimations = List.generate(
-      widget.orderItems.length,
+      widget.items.length,
       (index) => Tween<double>(
         begin: 0.0, // Start fully transparent
         end: 1.0, // End fully opaque
@@ -84,14 +84,14 @@ class _OrderProfileActionsState extends State<OrderProfileActions>
       width: screenWidth * 0.9,
       decoration: BoxDecoration(
         color: ColorManger.white,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: widget.orderItems.length,
+        itemCount: widget.items.length,
         itemBuilder: (context, index) {
-          final item = widget.orderItems[index];
+          final item = widget.items[index];
           return SlideTransition(
             position: _slideAnimations[index],
             child: FadeTransition(
@@ -99,7 +99,7 @@ class _OrderProfileActionsState extends State<OrderProfileActions>
               child: Column(
                 children: [
                   ActionsTile(item: item),
-                  if (index < widget.orderItems.length - 1)
+                  if (index < widget.items.length - 1)
                     const Divider(
                       thickness: 0.5,
                       indent: 16,

@@ -50,7 +50,7 @@ class ActionsTile extends StatelessWidget {
     required this.item,
   });
 
-  final OrderItem item;
+  final OrderAndMoreItems item;
 
   @override
   Widget build(BuildContext context) {

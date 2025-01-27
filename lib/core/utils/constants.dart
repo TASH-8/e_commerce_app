@@ -92,9 +92,7 @@ class Constants {
   static const String USERNAME = "User Name";
   static const String EDITPROFILE = "EDIT PROFILE";
 
-
-
-    static const String allMyOrders = 'All My Orders';
+  static const String allMyOrders = 'All My Orders';
   static const String pendingShipments = 'Pending Shipments';
   static const String pendingPayments = 'Pending Payments';
   static const String finishedOrders = 'Finished Orders';
@@ -104,4 +102,15 @@ class Constants {
   static const String customerSupport = 'Customer Support';
   static const String rateOurApp = 'Rate Our App';
   static const String makeASuggestion = 'Make a Suggestion';
+  static const String LOGOUT = "LOG OUT";
+  static const String MORE = "MORE";
+
+  static const String shippingAddressTitle = "Shipping Address";
+  static const String paymentMethodTitle = "Payment Method";
+  static const String currencyTitle = "Currency";
+  static const String languageTitle = "Language";
+  static const String notificationSettingsTitle = "Notification Settings";
+  static const String privacyPolicyTitle = "Privacy Policy";
+  static const String faqTitle = "Frequently Asked Questions";
+  static const String legalInformationTitle = "Legal Information";
 }

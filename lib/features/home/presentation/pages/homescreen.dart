@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homepage.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder.dart';
+import 'package:e_commerce_app/features/more/presentation/pages/more_screen.dart';
 import 'package:e_commerce_app/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const Center(child: Text('Search Page')),
     const Center(child: Text('Cart Page')),
     const ProfileScreen(),
-    const Center(child: Text('More Options Page')),
+    const MoreScreen(),
   ];
 
   @override

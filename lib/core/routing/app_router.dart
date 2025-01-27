@@ -17,7 +17,7 @@ class AppRouter {
       path: '/product',
       builder: (context, state) => const ProductPreviewScreen(),
     ),
-        GoRoute(
+    GoRoute(
       path: '/profile',
       builder: (context, state) => const ProfileScreen(),
     ),

@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
+import 'package:e_commerce_app/features/cart/presentation/pages/cart_screen.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homepage.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder.dart';
 import 'package:e_commerce_app/features/more/presentation/pages/more_screen.dart';
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     const HomePage(),
     const Center(child: Text('Search Page')),
-    const Center(child: Text('Cart Page')),
+    const CartScreen(),
     const ProfileScreen(),
     const MoreScreen(),
   ];

@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:e_commerce_app/core/routing/app_router.dart';
+import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
 import 'package:e_commerce_app/features/forget_reset/presentation/pages/forgot_page.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homescreen.dart';
 import 'package:e_commerce_app/core/widgets/custom_category_btn.dart';
@@ -28,8 +29,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ProductBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ProductBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CartBloc(),
+        ),
+      ],
       child: MaterialApp.router(
         routerConfig: AppRouter().router,
         debugShowCheckedModeBanner: false,

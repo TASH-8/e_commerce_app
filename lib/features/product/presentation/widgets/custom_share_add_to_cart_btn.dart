@@ -1,7 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
+import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
+import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/custom_icon_for_share_add_btns.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomShareAddToCartBTN extends StatelessWidget {
   final String text;
@@ -28,47 +31,56 @@ class CustomShareAddToCartBTN extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Flexible(
-      child: Container(
-        height: screenHeight * 0.05,
-        padding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.03,
-        ),
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: ColorManger.black.withOpacity(0.1),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Flexible(
-              child: AutoSizeText(
-                text,
-                style: textStyle,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+      child: InkWell(
+        onTap: () {
+          final state = context.read<ProductBloc>().state;
+
+          context.read<CartBloc>().add(GetProductToCartEvent(
+              itemName: state.itemName!,
+              itemPicture: state.itemPicture!,
+              itemPrice: state.itemPrice!));
+        },
+        child: Container(
+          height: screenHeight * 0.05,
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.03,
+          ),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [
+              BoxShadow(
+                color: ColorManger.black.withOpacity(0.1),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, 3),
               ),
-            ),
-            SizedBox(width: screenWidth * 0.02),
-            // Reusable Icon Widget
-            CustomIcon(
-              icon: icon,
-              iconColor: iconColor,
-              iconBackgroundColor: iconBackgroundColor,
-              screenWidth: screenWidth,
-              screenHeight: screenHeight,
-            ),
-          ],
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(
+                child: AutoSizeText(
+                  text,
+                  style: textStyle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              SizedBox(width: screenWidth * 0.02),
+              // Reusable Icon Widget
+              CustomIcon(
+                icon: icon,
+                iconColor: iconColor,
+                iconBackgroundColor: iconBackgroundColor,
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-

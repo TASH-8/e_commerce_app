@@ -44,12 +44,14 @@ class CheckoutBtn extends StatelessWidget {
               ),
             ),
             SizedBox(width: screenWidth * 0.02),
-            CustomIcon(
-              icon: Icons.arrow_forward_ios,
-              iconColor: ColorManger.redAccentCustom,
-              iconBackgroundColor: ColorManger.white,
-              screenWidth: screenWidth,
-              screenHeight: screenHeight,
+            Flexible(
+              child: CustomIcon(
+                icon: Icons.arrow_forward_ios,
+                iconColor: ColorManger.redAccentCustom,
+                iconBackgroundColor: ColorManger.white,
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+              ),
             ),
           ],
         ),

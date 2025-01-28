@@ -18,10 +18,10 @@ class AddItemBtn extends StatelessWidget {
       style: IconButton.styleFrom(
         backgroundColor: ColorManger
             .greyCustom, // Background color
-        padding: EdgeInsets.all(
+        padding: const EdgeInsets.all(
           1,
         ), // Reduce padding to make the button smaller
-        minimumSize: Size(
+        minimumSize: const Size(
           20,
           20,
         ), // Set a smaller minimum size for the button

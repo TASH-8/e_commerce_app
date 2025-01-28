@@ -18,7 +18,7 @@ class CartList extends StatelessWidget {
       builder: (context, state) {
         if (state.status == CartStatus.loaded && state.items.isNotEmpty) {
           return SizedBox(
-            height: screenHeight * 0.7,
+            height: screenHeight * 0.7, // Adjust height as needed
             child: ListView.builder(
               itemCount: state.items.length,
               itemBuilder: (context, index) {

@@ -23,18 +23,21 @@ class CartItems extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         Padding(
           padding: EdgeInsets.only(
             left: screenWidth * 0.08,
-            top: screenHeight * 0.04,
+            top: screenHeight * 0.02, // Reduced top padding
+            right: screenWidth * 0.08, // Added right padding
           ),
           child: Row(
             children: [
+              // Image Container
               Container(
-                width: screenWidth * 0.3,
-                height: screenWidth * 0.3,
+                width: screenWidth * 0.25, // Reduced width
+                height: screenWidth * 0.25, // Reduced height
                 decoration: const BoxDecoration(
                   color: ColorManger.white,
                   shape: BoxShape.circle,
@@ -42,47 +45,49 @@ class CartItems extends StatelessWidget {
                 child: Image.asset(item.itemPicture),
               ),
               SizedBox(width: screenWidth * 0.05),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        item.itemName,
-                        style: TextStyles.font16GreyNormal,
-                      ),
-                      SizedBox(width: screenWidth * 0.08),
-                      IconButton(
-                        onPressed: () {
-                          context.read<CartBloc>().add(
-                                RemoveEvent(itemName: item.itemName),
-                              );
-                        },
-                        icon: const Icon(Icons.delete),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenHeight * 0.01),
-                  Text(
-                    '\$${item.itemPrice}',
-                    style: TextStyles.font16RedAccentNormal,
-                  ),
-                  Row(
-                    children: [
-                      RemoveItemBtn(item: item),
-                      SizedBox(
-                        width: screenWidth * 0.05,
-                      ),
-                      Text(
-                        '${item.quantity}',
-                      ),
-                      SizedBox(
-                        width: screenWidth * 0.05,
-                      ),
-                      AddItemBtn(item: item),
-                    ],
-                  ),
-                ],
+              // Item Details
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            item.itemName,
+                            style: TextStyles.font16GreyNormal,
+                            overflow:
+                                TextOverflow.ellipsis, // Prevent text overflow
+                          ),
+                        ),
+                        Flexible(
+                          child: IconButton(
+                            onPressed: () {
+                              context.read<CartBloc>().add(
+                                    RemoveEvent(itemName: item.itemName),
+                                  );
+                            },
+                            icon: const Icon(Icons.delete),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: screenHeight * 0.01),
+                    Text(
+                      '\$${item.itemPrice}',
+                      style: TextStyles.font16RedAccentNormal,
+                    ),
+                    Row(
+                      children: [
+                        Flexible(child: RemoveItemBtn(item: item)),
+                        SizedBox(width: screenWidth * 0.05),
+                        Flexible(child: Text('${item.quantity}')),
+                        SizedBox(width: screenWidth * 0.05),
+                        Flexible(child: AddItemBtn(item: item)),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

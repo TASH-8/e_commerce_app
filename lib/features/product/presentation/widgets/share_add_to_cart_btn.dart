@@ -31,8 +31,6 @@ class ShareAddtocartBTN extends StatelessWidget {
               icon: Icons.arrow_upward,
               iconColor: ColorManger.white,
               iconBackgroundColor: ColorManger.greyCustomShade,
-              screenWidth: screenWidth,
-              screenHeight: screenHeight,
             ),
             SizedBox(width: screenWidth * 0.02),
             // ADD TO CART Button
@@ -43,8 +41,6 @@ class ShareAddtocartBTN extends StatelessWidget {
               icon: Icons.arrow_forward,
               iconColor: ColorManger.redAccentCustom,
               iconBackgroundColor: ColorManger.white,
-              screenWidth: screenWidth,
-              screenHeight: screenHeight,
             ),
           ],
         ),

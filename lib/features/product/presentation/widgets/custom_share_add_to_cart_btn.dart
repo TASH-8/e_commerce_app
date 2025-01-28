@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
+import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/custom_icon_for_share_add_btns.dart';
@@ -13,8 +14,6 @@ class CustomShareAddToCartBTN extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
   final Color iconBackgroundColor;
-  final double screenWidth;
-  final double screenHeight;
 
   const CustomShareAddToCartBTN({
     super.key,
@@ -24,21 +23,41 @@ class CustomShareAddToCartBTN extends StatelessWidget {
     required this.icon,
     required this.iconColor,
     required this.iconBackgroundColor,
-    required this.screenWidth,
-    required this.screenHeight,
   });
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Flexible(
       child: InkWell(
         onTap: () {
+          // Access ProductBloc state
           final state = context.read<ProductBloc>().state;
 
+          // Dispatch event to CartBloc
           context.read<CartBloc>().add(GetProductToCartEvent(
-              itemName: state.itemName!,
-              itemPicture: state.itemPicture!,
-              itemPrice: state.itemPrice!));
+                itemName: state.itemName!,
+                itemPicture: state.itemPicture!,
+                itemPrice: state.itemPrice!,
+              ));
+
+          // Show SnackBar
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text(Constants.PRODUCTADDEDTOCART),
+              duration: const Duration(seconds: 2),
+              backgroundColor: ColorManger.grey,
+              action: SnackBarAction(
+                label: Constants.DISMISS,
+                textColor: Colors.white,
+                onPressed: () {
+                  // Optional action: dismiss the snackbar
+                },
+              ),
+            ),
+          );
         },
         child: Container(
           height: screenHeight * 0.05,

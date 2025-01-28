@@ -18,6 +18,16 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorManger.redAccent,
   );
+  static TextStyle font25GreyCustomShadeBold = TextStyle(
+    fontSize: 25,
+    color: ColorManger.greyCustomShade,
+    fontWeight: FontWeightHelper.bold,
+  );
+  static TextStyle font14GreyCustomShadeLight = TextStyle(
+    fontSize: 14,
+    color: ColorManger.greyCustomShade,
+    fontWeight: FontWeightHelper.light,
+  );
 
   static const TextStyle font17GreyNormal = TextStyle(
     fontSize: 17.5,
@@ -121,6 +131,12 @@ class TextStyles {
   );
 
   static const TextStyle font16WhiteBoldSpacingHalf = TextStyle(
+    color: ColorManger.white,
+    fontSize: 16,
+    fontWeight: FontWeightHelper.bold,
+    letterSpacing: 0.5,
+  );
+   static const TextStyle font16WhiteExtraBoldSpacingHalf = TextStyle(
     color: ColorManger.white,
     fontSize: 16,
     fontWeight: FontWeightHelper.bold,

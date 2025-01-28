@@ -114,4 +114,14 @@ class Constants {
   static const String faqTitle = "Frequently Asked Questions";
   static const String legalInformationTitle = "Legal Information";
   static const String CARTISEMPTY = "Cart is empty" ;
+
+  static const String CART = "Cart";
+  static const String TOTAL = "TOTAL";
+  static const String FREE_SHIPPING = "Free Domestic Shipping";
+  static const String CHECKOUT = "CHECKOUT";
+    static const String PRODUCTADDEDTOCART = "Product added to cart!";
+        static const String DISMISS = "Dismiss" ;
+
+
+
 }

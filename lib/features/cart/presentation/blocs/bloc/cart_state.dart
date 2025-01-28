@@ -1,41 +1,57 @@
-// // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
-enum CartStatus { initial, counterinitial, loaded, error, increment, decrement }
+class CartItem {
+  final String itemName;
+  final String itemPicture;
+  final double itemPrice;
+  final int quantity;
 
-class CartState extends Equatable {
-  final CartStatus status;
-  final String? itemName;
-  final String? itemPicture;
-  final double? itemPrice;
-  final int? quantity;
+  CartItem({
+    required this.itemName,
+    required this.itemPicture,
+    required this.itemPrice,
+    this.quantity = 1,
+  });
 
-  const CartState(
-      {required this.status,
-      this.itemName,
-      this.itemPicture,
-      this.itemPrice,
-      this.quantity = 1});
-
-  @override
-  List<Object?> get props =>
-      [status, itemName, itemPicture, itemPrice, quantity];
-
-  CartState copyWith({
-    CartStatus? status,
-    String? itemName,
-    String? itemPicture,
-    double? itemPrice,
-    int? quantity,
-  }) {
-    return CartState(
-      status: status ?? this.status,
-      itemName: itemName ?? this.itemName,
-      itemPicture: itemPicture ?? this.itemPicture,
-      itemPrice: itemPrice ?? this.itemPrice,
+  CartItem copyWith({int? quantity}) {
+    return CartItem(
+      itemName: itemName,
+      itemPicture: itemPicture,
+      itemPrice: itemPrice,
       quantity: quantity ?? this.quantity,
     );
   }
 }
 
+enum CartStatus {
+  initial,
+  counterinitial,
+  loaded,
+  error,
+  increment,
+  decrement,
+  remove
+}
 
+class CartState extends Equatable {
+  final CartStatus status;
+  final List<CartItem> items;
+
+  const CartState({
+    required this.status,
+    this.items = const [],
+  });
+
+  @override
+  List<Object?> get props => [status, items];
+
+  CartState copyWith({
+    CartStatus? status,
+    List<CartItem>? items,
+  }) {
+    return CartState(
+      status: status ?? this.status,
+      items: items ?? this.items,
+    );
+  }
+}

@@ -113,4 +113,5 @@ class Constants {
   static const String privacyPolicyTitle = "Privacy Policy";
   static const String faqTitle = "Frequently Asked Questions";
   static const String legalInformationTitle = "Legal Information";
+  static const String CARTISEMPTY = "Cart is empty" ;
 }

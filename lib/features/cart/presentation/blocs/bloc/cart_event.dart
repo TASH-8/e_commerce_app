@@ -18,8 +18,28 @@ class GetProductToCartEvent extends CartEvent {
   });
 }
 
-class IncrementEvent extends CartEvent {}
+class IncrementEvent extends CartEvent {
+  final String itemName;
 
-class DecreameantEvent extends CartEvent {}
+  const IncrementEvent(this.itemName);
 
+  @override
+  List<Object> get props => [itemName];
+}
 
+class DecreameantEvent extends CartEvent {
+  final String itemName;
+
+  const DecreameantEvent(this.itemName);
+
+  @override
+  List<Object> get props => [itemName];
+}
+
+class RemoveEvent extends CartEvent {
+    final String itemName;
+
+  const RemoveEvent({required this.itemName});
+  @override
+  List<Object> get props => [itemName];
+}

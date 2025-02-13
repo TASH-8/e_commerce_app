@@ -49,10 +49,15 @@ AppBar buildAppBar(BuildContext context) {
         ),
 
         // Cart Icon
-        Icon(
-          Icons.shopping_cart_outlined,
-          size: screenWidth * 0.075,
+        IconButton(
+          onPressed: () {
+            context.push("/cart");
+          },
           color: ColorManger.grey,
+          icon: Icon(
+            size: screenWidth * 0.075,
+            Icons.shopping_cart_outlined,
+          ),
         ),
       ],
     ),

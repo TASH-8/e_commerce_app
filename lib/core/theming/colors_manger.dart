@@ -6,7 +6,7 @@ class ColorManger {
   static const Color grey = Colors.grey;
   static const Color white = Colors.white;
   static const Color amber = Colors.amber;
-  static Color greyshade100 = const Color(0xffF5F6F8) ;
+  static Color greyshade100 = Colors.grey.shade100;
 
   static Color lightTurquoiseFade = const Color(0xFF79E1F4);
   static Color oeeperBlueFade = const Color(0xFF3DA6F0);

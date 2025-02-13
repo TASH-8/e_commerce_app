@@ -1,9 +1,9 @@
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/features/cart/presentation/pages/cart_screen.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homepage.dart';
-import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder.dart';
 import 'package:e_commerce_app/features/more/presentation/pages/more_screen.dart';
 import 'package:e_commerce_app/features/profile/presentation/pages/profile_screen.dart';
+import 'package:e_commerce_app/features/search/presentation/pages/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // Define the screens for each tab
   final List<Widget> _pages = [
     const HomePage(),
-    const Center(child: Text('Search Page')),
+    const SearchScreen(),
     const CartScreen(),
     const ProfileScreen(),
     const MoreScreen(),
@@ -29,13 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManger.greyshade100,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight),
-        child: buildHomeScreenAppBar(
-          backgroundColor: Colors.grey.shade100,
-          context: context,
-        ),
-      ),
       body: _pages[
           _currentIndex], // Use the current index to switch between pages.
       bottomNavigationBar: buildBottomNavigationBar(

@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
+
 class Constants {
   Constants._();
   static const String SIGNUP = 'Sign up';
@@ -113,14 +114,32 @@ class Constants {
   static const String privacyPolicyTitle = "Privacy Policy";
   static const String faqTitle = "Frequently Asked Questions";
   static const String legalInformationTitle = "Legal Information";
-  static const String CARTISEMPTY = "Cart is empty" ;
+  static const String CARTISEMPTY = "Cart is empty";
 
   static const String CART = "Cart";
   static const String TOTAL = "TOTAL";
   static const String FREE_SHIPPING = "Free Domestic Shipping";
   static const String CHECKOUT = "CHECKOUT";
-    static const String PRODUCTADDEDTOCART = "Product added to cart!";
-        static const String DISMISS = "Dismiss" ;
+  static const String PRODUCTADDEDTOCART = "Product added to cart!";
+  static const String DISMISS = "Dismiss";
+
+  static const String search = "Search";
+  static const String searchInfoBackpack = "Red Backpack\n20.58";
+  static const String searchInfoScarf = "Brown Scarf\n11.00";
+
+  static const String denimJeans = "Denim Jeans";
+  static const String miniSkirt = "Mini Skirt";
+  static const String jacket = "Jacket";
+  static const String accessories = "Accessories";
+  static const String sportsAccessories = "Sports Accessories";
+  static const String yogaPants = "Yoga Pants";
+  static const String eyeShadow = "Eye Shadow";
+  static const String RECENTLYVIEWD = "RECENTLY VIEWED" ;
+  static const String CLEAR = "CLEAR" ;
+    static const String Recommended = "Recommended" ;
+    static const String Refresh = "Refresh" ;
+    static const String SearchSomthing = "Search Something" ;
+    static const String GOTOCART = "SEE CART?" ;
 
 
 

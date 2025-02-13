@@ -1,28 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
+import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/custom_icon_for_share_add_btns.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-class CustomShareAddToCartBTN extends StatelessWidget {
-  final String text;
-  final TextStyle textStyle;
-  final Color backgroundColor;
-  final IconData icon;
-  final Color iconColor;
-  final Color iconBackgroundColor;
-
-  const CustomShareAddToCartBTN({
+class AddToCartBtn extends StatelessWidget {
+  const AddToCartBtn({
     super.key,
-    required this.text,
-    required this.textStyle,
-    required this.backgroundColor,
-    required this.icon,
-    required this.iconColor,
-    required this.iconBackgroundColor,
   });
 
   @override
@@ -32,6 +21,7 @@ class CustomShareAddToCartBTN extends StatelessWidget {
 
     return Flexible(
       child: InkWell(
+        borderRadius: BorderRadius.circular(25),
         onTap: () {
           // Access ProductBloc state
           final state = context.read<ProductBloc>().state;
@@ -50,10 +40,10 @@ class CustomShareAddToCartBTN extends StatelessWidget {
               duration: const Duration(seconds: 2),
               backgroundColor: ColorManger.grey,
               action: SnackBarAction(
-                label: Constants.DISMISS,
+                label: Constants.GOTOCART,
                 textColor: Colors.white,
                 onPressed: () {
-                  // Optional action: dismiss the snackbar
+                  context.push("/cart");
                 },
               ),
             ),
@@ -65,7 +55,7 @@ class CustomShareAddToCartBTN extends StatelessWidget {
             horizontal: screenWidth * 0.03,
           ),
           decoration: BoxDecoration(
-            color: backgroundColor,
+            color: ColorManger.redAccentCustom.withOpacity(0.9),
             borderRadius: BorderRadius.circular(30),
             boxShadow: [
               BoxShadow(
@@ -79,10 +69,10 @@ class CustomShareAddToCartBTN extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Flexible(
+              const Flexible(
                 child: AutoSizeText(
-                  text,
-                  style: textStyle,
+                  Constants.ADDTOCART,
+                  style: TextStyles.font16WhiteBoldSpacingHalf,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -90,9 +80,9 @@ class CustomShareAddToCartBTN extends StatelessWidget {
               SizedBox(width: screenWidth * 0.02),
               // Reusable Icon Widget
               CustomIcon(
-                icon: icon,
-                iconColor: iconColor,
-                iconBackgroundColor: iconBackgroundColor,
+                icon: Icons.arrow_forward,
+                iconColor: ColorManger.redAccentCustom,
+                iconBackgroundColor: ColorManger.white,
                 screenWidth: screenWidth,
                 screenHeight: screenHeight,
               ),

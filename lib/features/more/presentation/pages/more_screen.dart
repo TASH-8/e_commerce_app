@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
+import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder.dart';
 import 'package:e_commerce_app/features/more/presentation/widgets/more_actions_lists.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/side_custom_padding.dart';
 import 'package:e_commerce_app/core/widgets/custom_list_tile_actions.dart';
@@ -16,6 +17,13 @@ class MoreScreen extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: buildHomeScreenAppBar(
+          backgroundColor: Colors.grey.shade100,
+          context: context,
+        ),
+      ),
       backgroundColor: ColorManger.greyshade100,
       body: SingleChildScrollView(
         child: Column(

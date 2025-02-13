@@ -1,7 +1,5 @@
-import 'package:e_commerce_app/core/theming/colors_manger.dart';
-import 'package:e_commerce_app/core/theming/text_styles.dart';
-import 'package:e_commerce_app/core/utils/constants.dart';
-import 'package:e_commerce_app/features/product/presentation/widgets/custom_share_add_to_cart_btn.dart';
+import 'package:e_commerce_app/features/product/presentation/widgets/add_to_cart.dart';
+import 'package:e_commerce_app/features/product/presentation/widgets/share_btn.dart';
 import 'package:flutter/material.dart';
 
 class ShareAddtocartBTN extends StatelessWidget {
@@ -17,31 +15,16 @@ class ShareAddtocartBTN extends StatelessWidget {
         horizontal: screenWidth * 0.02,
         vertical: screenHeight * 0.01,
       ),
-      child: Align(
+      child: const Align(
         alignment: Alignment.bottomCenter,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             // SHARETHIS Button
-            CustomShareAddToCartBTN(
-              text: Constants.SHARETHIS,
-              textStyle: TextStyles.font16greyCustomShadeBoldSpacingHalf,
-              backgroundColor: ColorManger.white.withOpacity(0.8),
-              icon: Icons.arrow_upward,
-              iconColor: ColorManger.white,
-              iconBackgroundColor: ColorManger.greyCustomShade,
-            ),
-            SizedBox(width: screenWidth * 0.02),
+            ShareBtn(),
             // ADD TO CART Button
-            CustomShareAddToCartBTN(
-              text: Constants.ADDTOCART,
-              textStyle: TextStyles.font16WhiteBoldSpacingHalf,
-              backgroundColor: ColorManger.redAccentCustom.withOpacity(0.9),
-              icon: Icons.arrow_forward,
-              iconColor: ColorManger.redAccentCustom,
-              iconBackgroundColor: ColorManger.white,
-            ),
+            AddToCartBtn(),
           ],
         ),
       ),

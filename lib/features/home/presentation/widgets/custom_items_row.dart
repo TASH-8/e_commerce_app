@@ -10,36 +10,32 @@ class CustomItemsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
-      child: const SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            CustomItemsBtn(
-              itemPicture: Assets.assetsBoots,
-              itemName: Constants.ANKLE_BOOTS,
-              itemPrice: Constants.BOOT_PRICE,
-            ),
-            SizedBox(
-              width: 7,
-            ),
-            CustomItemsBtn(
-              itemPicture: Assets.assetsRedBackpack,
-              itemName: Constants.RED_BACKPACK,
-              itemPrice: Constants.BACKPACK_PRICE,
-            ),
-            SizedBox(
-              width: 7,
-            ),
-            CustomItemsBtn(
-              itemPicture: Assets.assetsScarfPNG25,
-              itemName: Constants.BROWN_SCARF,
-              itemPrice: Constants.SCARF_PRICE,
-            )
-          ],
-        ),
+    return const SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          CustomItemsBtn(
+            itemPicture: Assets.assetsBoots,
+            itemName: Constants.ANKLE_BOOTS,
+            itemPrice: Constants.BOOT_PRICE,
+          ),
+          SizedBox(
+            width: 7,
+          ),
+          CustomItemsBtn(
+            itemPicture: Assets.assetsRedBackpack,
+            itemName: Constants.RED_BACKPACK,
+            itemPrice: Constants.BACKPACK_PRICE,
+          ),
+          SizedBox(
+            width: 7,
+          ),
+          CustomItemsBtn(
+            itemPicture: Assets.assetsScarfPNG25,
+            itemName: Constants.BROWN_SCARF,
+            itemPrice: Constants.SCARF_PRICE,
+          )
+        ],
       ),
     );
   }

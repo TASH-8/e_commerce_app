@@ -5,6 +5,7 @@ import 'package:e_commerce_app/features/login/presentation/pages/login_page.dart
 import 'package:e_commerce_app/features/product/presentation/pages/product_preview_page.dart';
 import 'package:e_commerce_app/features/categories/presentation/pages/categories_page.dart';
 import 'package:e_commerce_app/features/profile/presentation/pages/profile_screen.dart';
+import 'package:e_commerce_app/features/search/presentation/pages/search_screen.dart';
 import 'package:e_commerce_app/features/signup/presentation/pages/signup_page.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,6 +18,10 @@ class AppRouter {
     GoRoute(
       path: '/product',
       builder: (context, state) => const ProductPreviewScreen(),
+    ),
+        GoRoute(
+      path: '/search',
+      builder: (context, state) => const SearchScreen(),
     ),
     GoRoute(
       path: '/cart',

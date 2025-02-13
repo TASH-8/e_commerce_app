@@ -4,6 +4,7 @@ import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/features/cart/presentation/widgets/cart_list.dart';
 import 'package:e_commerce_app/features/cart/presentation/widgets/cart_price_checkout.dart';
+import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/side_custom_padding.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,13 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: buildHomeScreenAppBar(
+          backgroundColor: Colors.grey.shade100,
+          context: context,
+        ),
+      ),
       backgroundColor: ColorManger.greyshade100,
       body: Column(
         children: [

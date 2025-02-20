@@ -14,6 +14,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+    
     final screenHeight = MediaQuery.of(context).size.height;
     final PageController controller = PageController(initialPage: 0);
     return Scaffold(
@@ -54,7 +57,7 @@ class HomePage extends StatelessWidget {
           ),
           LatestOffersPics(
             controller: controller,
-          ),
+          ),  
           SizedBox(
             height: screenHeight * 0.012,
           ),

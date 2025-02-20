@@ -1,21 +1,20 @@
-// ignore_for_file: unused_import
-
 import 'package:e_commerce_app/core/routing/app_router.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
-import 'package:e_commerce_app/features/forget_reset/presentation/pages/forgot_page.dart';
-import 'package:e_commerce_app/features/home/presentation/pages/homescreen.dart';
-import 'package:e_commerce_app/core/widgets/custom_category_btn.dart';
-import 'package:e_commerce_app/features/login/presentation/pages/login_page.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
-import 'package:e_commerce_app/features/product/presentation/widgets/detail_section.dart';
-import 'package:e_commerce_app/features/product/presentation/pages/product_preview_page.dart';
-import 'package:e_commerce_app/features/product/presentation/widgets/product_section.dart';
-import 'package:e_commerce_app/features/product/presentation/widgets/reviews_section.dart';
-import 'package:e_commerce_app/features/signup/presentation/pages/signup_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'firebase_options.dart'; // Import Firebase options
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Ensure Firebase is initialized with the generated options
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -27,6 +26,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        debugPrint('=========================User is currently signed out!');
+      } else {
+        debugPrint('=========================User is signed in!');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

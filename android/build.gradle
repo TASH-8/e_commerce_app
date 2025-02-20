@@ -1,14 +1,29 @@
-allprojects {
+buildscript {
     repositories {
         google()
         mavenCentral()
     }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0' // Use the latest version
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0' // Required if using Kotlin
+        classpath 'com.google.gms:google-services:4.3.8'        
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' } // Optional
+    }
 }
 
 rootProject.buildDir = '../build'
+
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
+
 subprojects {
     project.evaluationDependsOn(':app')
 }

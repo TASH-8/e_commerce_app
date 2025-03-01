@@ -6,7 +6,9 @@ import 'package:e_commerce_app/features/home/presentation/widgets/appbar_builder
 import 'package:e_commerce_app/features/more/presentation/widgets/more_actions_lists.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/side_custom_padding.dart';
 import 'package:e_commerce_app/core/widgets/custom_list_tile_actions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MoreScreen extends StatelessWidget {
   const MoreScreen({super.key});
@@ -56,7 +58,12 @@ class MoreScreen extends StatelessWidget {
             ),
             Center(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  // Add your logout logic here
+                  await FirebaseAuth.instance.signOut();
+                  // Navigate to the login screen
+                  context.pushReplacement('/');
+                },
                 child: const AutoSizeText(
                   Constants.LOGOUT,
                   textAlign: TextAlign.center,

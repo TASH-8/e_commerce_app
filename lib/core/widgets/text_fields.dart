@@ -7,17 +7,20 @@ class Textfields extends StatelessWidget {
   final String hintText;
   final bool isPassword;
   final double screenHeight;
-  const Textfields(
-      {super.key,
-      required this.icon,
-      required this.hintText,
-      this.isPassword = false,
-      required this.screenHeight});
+  final  controller;
+  const Textfields({
+    super.key,
+    required this.icon,
+    required this.hintText,
+    this.isPassword = false,
+    required this.screenHeight,
+     this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      obscureText: isPassword,
+      controller: controller,
       decoration: InputDecoration(
         prefixIcon: Icon(
           icon,

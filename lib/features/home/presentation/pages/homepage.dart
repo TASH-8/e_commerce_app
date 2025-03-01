@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     final PageController controller = PageController(initialPage: 0);
     return Scaffold(
+      
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: buildHomeScreenAppBar(

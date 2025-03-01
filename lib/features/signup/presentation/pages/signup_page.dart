@@ -1,12 +1,16 @@
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
+import 'package:e_commerce_app/core/utils/app_enums.dart';
+import 'package:e_commerce_app/core/utils/app_extensions.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/core/widgets/login_forgot_row.dart';
 import 'package:e_commerce_app/core/widgets/signup_login_btn_forgot.dart';
 import 'package:e_commerce_app/features/forget_reset/presentation/widgets/terms_and_policy_btn.dart';
 import 'package:e_commerce_app/core/widgets/text_fields.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -16,6 +20,9 @@ class SignUpScreen extends StatelessWidget {
     // Fetch screen dimensions for responsiveness
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
+    final TextEditingController username = TextEditingController();
+    final TextEditingController email = TextEditingController();
+    final TextEditingController password = TextEditingController();
 
     return Scaffold(
       backgroundColor: ColorManger.greyshade100,
@@ -38,16 +45,17 @@ class SignUpScreen extends StatelessWidget {
                 CustomLoginAndForgotRow(
                   screenWidth: screenWidth,
                   isLoginScreen: false,
+                  onpressed: () => context.push('/login'),
                 ),
 
                 SizedBox(height: screenHeight * 0.04),
 
                 // Email TextField
                 Textfields(
-                  icon: Icons.email,
-                  hintText: Constants.EMAILTEXTHINT,
-                  screenHeight: screenHeight,
-                ),
+                    icon: Icons.email,
+                    hintText: Constants.EMAILTEXTHINT,
+                    screenHeight: screenHeight,
+                    controller: email),
                 SizedBox(height: screenHeight * 0.02),
 
                 // Username TextField
@@ -55,6 +63,7 @@ class SignUpScreen extends StatelessWidget {
                   icon: Icons.person,
                   hintText: Constants.USER123,
                   screenHeight: screenHeight,
+                  controller: username,
                 ),
                 SizedBox(height: screenHeight * 0.02),
 
@@ -63,16 +72,35 @@ class SignUpScreen extends StatelessWidget {
                   icon: Icons.lock,
                   hintText: Constants.PASSWORD,
                   screenHeight: screenHeight,
+                  controller: password,
                 ),
                 SizedBox(height: screenHeight * 0.03),
 
-              //  Sign Up Button
+                //  Sign Up Button
                 SignUpLogInForgotBtn(
-                  screenHeight: screenHeight,
-                  screenWidth: screenWidth,
-                  isLoginsbutton: false,
-                  isResetButton: false,
-                ),
+                    screenHeight: screenHeight,
+                    screenWidth: screenWidth,
+                    isLoginsbutton: false,
+                    isResetButton: false,
+                    onpressed: ()async {
+                       try {
+                      // ignore: unused_local_variable
+                      final credential = await FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                        email: email.text,
+                        password: password.text,
+                      );
+                      context.pushReplacement('/home');
+                    } on FirebaseAuthException catch (e) {
+                      if (e.code == 'weak-password') {
+                        print('The password provided is too weak.'.withColor(StringColor.magenta));
+                      } else if (e.code == 'email-already-in-use') {
+                        print('The account already exists for that email.'.withColor(StringColor.magenta));
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
+                    }),
                 // const SignUpButton(),
                 SizedBox(height: screenHeight * 0.02),
 

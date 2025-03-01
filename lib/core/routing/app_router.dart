@@ -7,19 +7,20 @@ import 'package:e_commerce_app/features/categories/presentation/pages/categories
 import 'package:e_commerce_app/features/profile/presentation/pages/profile_screen.dart';
 import 'package:e_commerce_app/features/search/presentation/pages/search_screen.dart';
 import 'package:e_commerce_app/features/signup/presentation/pages/signup_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
   final GoRouter router = GoRouter(routes: [
     GoRoute(
-      path: '/',
+      path: '/home',
       builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
       path: '/product',
       builder: (context, state) => const ProductPreviewScreen(),
     ),
-        GoRoute(
+    GoRoute(
       path: '/search',
       builder: (context, state) => const SearchScreen(),
     ),
@@ -32,8 +33,10 @@ class AppRouter {
       builder: (context, state) => const ProfileScreen(),
     ),
     GoRoute(
-      path: '/signup',
-      builder: (context, state) => const SignUpScreen(),
+      path: '/',
+      builder: (context, state) => FirebaseAuth.instance.currentUser == null
+          ? const SignUpScreen()
+          : const HomeScreen(),
     ),
     GoRoute(
       path: '/login',

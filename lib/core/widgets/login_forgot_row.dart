@@ -9,18 +9,26 @@ class CustomLoginAndForgotRow extends StatelessWidget {
     super.key,
     required this.screenWidth,
     required this.isLoginScreen,
+    this.onpressed,
+    this.email,
+    this.forgetOnpressed,
   });
   final bool isLoginScreen;
   final double screenWidth;
-
+  final onpressed;
+  final email;
+  final forgetOnpressed;
   @override
   Widget build(BuildContext context) {
     if (isLoginScreen == true) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const TextBtnLogInSignUp(
+          TextBtnLogInSignUp(
+            email: email,
             isLoginScreen: true,
+            onpressed: onpressed,
+            forgetOnpressed: forgetOnpressed,
           ),
           SizedBox(width: screenWidth * 0.05),
         ],
@@ -30,7 +38,8 @@ class CustomLoginAndForgotRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const TextBtnLogInSignUp(
+        TextBtnLogInSignUp(
+          onpressed: onpressed,
           isLoginScreen: false,
         ),
         SizedBox(width: screenWidth * 0.05),

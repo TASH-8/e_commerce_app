@@ -55,7 +55,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   screenHeight: screenHeight,
                   screenWidth: screenWidth,
                   isLoginsbutton: false,
-                  isResetButton: true,
+                  isResetButton: true, onpressed: () {},
                 ),
                 SizedBox(height: screenHeight * 0.02),
 

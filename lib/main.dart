@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/core/routing/app_router.dart';
+import 'package:e_commerce_app/core/utils/app_enums.dart';
+import 'package:e_commerce_app/core/utils/app_extensions.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -32,9 +34,10 @@ class _MyAppState extends State<MyApp> {
     
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-        debugPrint('=========================User is currently signed out!');
+          
+        debugPrint('=========================User is currently signed out!'.withColor(StringColor.green));
       } else {
-        debugPrint('=========================User is signed in!');
+        debugPrint('=========================User is signed in!'.withColor(StringColor.green));
       }
     });
   }

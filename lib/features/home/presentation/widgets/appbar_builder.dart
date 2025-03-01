@@ -2,13 +2,14 @@ import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:flutter/material.dart';
 
 Widget buildHomeScreenAppBar({
-
   required Color backgroundColor,
   required BuildContext context,
 }) {
   final screenWidth = MediaQuery.of(context).size.width;
   final screenHeight = MediaQuery.of(context).size.height;
   return AppBar(
+        automaticallyImplyLeading: false,
+
     backgroundColor: ColorManger.transparent,
     actions: [
       Padding(

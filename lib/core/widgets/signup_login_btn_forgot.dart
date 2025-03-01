@@ -10,18 +10,20 @@ class SignUpLogInForgotBtn extends StatelessWidget {
     required this.screenHeight,
     required this.screenWidth,
     required this.isLoginsbutton,
-    required this.isResetButton, 
+    required this.isResetButton,
+    required this.onpressed,
   });
   final double screenHeight;
   final double screenWidth;
   final bool isLoginsbutton;
   final bool isResetButton;
+  final onpressed;
 
   @override
   Widget build(BuildContext context) {
     if (isLoginsbutton == true) {
       return ElevatedButton(
-        onPressed: () {},
+        onPressed: onpressed ,
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorManger.redAccent,
           shape: RoundedRectangleBorder(
@@ -59,7 +61,7 @@ class SignUpLogInForgotBtn extends StatelessWidget {
       );
     } else {
       return ElevatedButton(
-        onPressed: () {},
+        onPressed: onpressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorManger.redAccent,
           shape: RoundedRectangleBorder(

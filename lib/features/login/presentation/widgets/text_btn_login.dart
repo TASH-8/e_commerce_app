@@ -4,19 +4,21 @@ import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class TextBtnLogInSignUp extends StatelessWidget {
-  const TextBtnLogInSignUp({
-    super.key,
-    required this.isLoginScreen,
-  });
+  const TextBtnLogInSignUp(
+      {super.key,
+      required this.isLoginScreen,
+      this.onpressed,
+      this.email,
+      this.forgetOnpressed});
   final bool isLoginScreen;
-
+  final onpressed;
+  final email;
+  final forgetOnpressed;
   @override
   Widget build(BuildContext context) {
     if (isLoginScreen == true) {
       return TextButton(
-        onPressed: () {
-          // Handle forgot button
-        },
+        onPressed: forgetOnpressed,
         child: const AutoSizeText(
           Constants.ForgotPas,
           style: TextStyles.font17redAccentBold,
@@ -26,13 +28,15 @@ class TextBtnLogInSignUp extends StatelessWidget {
     } else {
       return TextButton(
         onPressed: () {
-          // Handle Log In" click
+          onpressed;
         },
-        child: const AutoSizeText(
-          Constants.LOGIN,
-          style: TextStyles.font17redAccentBold,
-          maxLines: 1,
-        ),
+        child: TextButton(
+            onPressed: onpressed,
+            child: const AutoSizeText(
+              Constants.LOGIN,
+              style: TextStyles.font17redAccentBold,
+              maxLines: 1,
+            )),
       );
     }
   }

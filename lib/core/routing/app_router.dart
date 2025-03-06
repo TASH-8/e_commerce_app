@@ -35,7 +35,7 @@ class AppRouter {
     GoRoute(
       path: '/',
       builder: (context, state) => FirebaseAuth.instance.currentUser == null
-          ? const SignUpScreen()
+          ?  SignUpScreen()
           : const HomeScreen(),
     ),
     GoRoute(

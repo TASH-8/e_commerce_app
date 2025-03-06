@@ -99,8 +99,6 @@ class LoginScreen extends StatelessWidget {
 
                 // Log In Button
                 SignUpLogInForgotBtn(
-                  screenHeight: screenHeight,
-                  screenWidth: screenWidth,
                   isLoginsbutton: true,
                   isResetButton: false,
                   onpressed: () async {

@@ -27,17 +27,12 @@ class TextBtnLogInSignUp extends StatelessWidget {
       );
     } else {
       return TextButton(
-        onPressed: () {
-          onpressed;
-        },
-        child: TextButton(
-            onPressed: onpressed,
-            child: const AutoSizeText(
-              Constants.LOGIN,
-              style: TextStyles.font17redAccentBold,
-              maxLines: 1,
-            )),
-      );
+          onPressed: onpressed,
+          child: const AutoSizeText(
+            Constants.LOGIN,
+            style: TextStyles.font17redAccentBold,
+            maxLines: 1,
+          ));
     }
   }
 }

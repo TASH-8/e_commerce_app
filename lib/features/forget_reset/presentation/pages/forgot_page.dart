@@ -52,8 +52,7 @@ class ForgotPasswordScreen extends StatelessWidget {
 
                 // Reset Password Button
                 SignUpLogInForgotBtn(
-                  screenHeight: screenHeight,
-                  screenWidth: screenWidth,
+
                   isLoginsbutton: false,
                   isResetButton: true, onpressed: () {},
                 ),

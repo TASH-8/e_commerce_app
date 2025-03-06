@@ -3,6 +3,8 @@ import 'package:e_commerce_app/core/utils/app_enums.dart';
 import 'package:e_commerce_app/core/utils/app_extensions.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
+import 'package:e_commerce_app/features/signup/presentation/bloc/signup_user_bloc.dart';
+import 'package:e_commerce_app/injection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ import 'firebase_options.dart'; // Import Firebase options
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies(); // Initialize dependency injection
 
   // Ensure Firebase is initialized with the generated options
   await Firebase.initializeApp(
@@ -28,16 +31,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final SignupUserBloc bloc = getIt<SignupUserBloc>();
   @override
   void initState() {
     super.initState();
-    
+
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-          
-        debugPrint('=========================User is currently signed out!'.withColor(StringColor.green));
+        debugPrint('=========================User is currently signed out!'
+            .withColor(StringColor.green));
       } else {
-        debugPrint('=========================User is signed in!'.withColor(StringColor.green));
+        debugPrint('=========================User is signed in!'
+            .withColor(StringColor.green));
       }
     });
   }
@@ -52,6 +57,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => CartBloc(),
         ),
+        BlocProvider(create: (_) => bloc)
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter().router,

@@ -1,15 +1,14 @@
 // ignore_for_file: constant_identifier_names
 
-
 class Constants {
   Constants._();
   static const String SIGNUP = 'Sign up';
   static const String FORGOT = 'Forgot';
   static const String LOGIN = 'Log in';
   static const String SINGUPcap = 'SIGN UP';
-  static const String EMAILTEXTHINT = 'example123@gmail.com';
-  static const String USER123 = 'user123';
-  static const String PASSWORD = '************';
+  static const String EMAILTEXTHINT = 'Enter your email here';
+  static const String USER123 = 'Username';
+  static const String PASSWORD = "Password";
   static const String ByCreatingAnAcoount =
       "By creating an account, you agree to our";
   static const String TermsAndPolicy = "Terms of Service and Privacy Policy";
@@ -134,13 +133,37 @@ class Constants {
   static const String sportsAccessories = "Sports Accessories";
   static const String yogaPants = "Yoga Pants";
   static const String eyeShadow = "Eye Shadow";
-  static const String RECENTLYVIEWD = "RECENTLY VIEWED" ;
-  static const String CLEAR = "CLEAR" ;
-    static const String Recommended = "Recommended" ;
-    static const String Refresh = "Refresh" ;
-    static const String SearchSomthing = "Search Something" ;
-    static const String GOTOCART = "SEE CART?" ;
+  static const String RECENTLYVIEWD = "RECENTLY VIEWED";
+  static const String CLEAR = "CLEAR";
+  static const String Recommended = "Recommended";
+  static const String Refresh = "Refresh";
+  static const String SearchSomthing = "Search Something";
+  static const String GOTOCART = "SEE CART?";
 
+
+
+
+
+
+
+  static const String ERROR = "Error";
+  static const String EMAIL_EMPTY = "Email cannot be empty";
+  static const String EMAIL_INVALID = "Enter a valid email";
+  static const String USERNAME_EMPTY = "Username cannot be empty";
+  static const String USERNAME_SHORT = "Username must be at least 3 characters long";
+  static const String PASSWORD_EMPTY = "Password cannot be empty";
+  static const String PASSWORD_SHORT = "Password must be at least 6 characters long";
+
+
+
+
+  static const String ERROR_UNEXPECTED = "An unexpected error occurred.";
+  static const String ERROR_NO_INTERNET = "No internet connection.";
+  static const String ERROR_EMAIL_IN_USE = "The email address is already in use by another account.";
+  static const String ERROR_INVALID_EMAIL = "The email address is not valid.";
+  static const String ERROR_OPERATION_NOT_ALLOWED = "Email/password accounts are not enabled.";
+  static const String ERROR_WEAK_PASSWORD = "The password is too weak.";
+  static const String ERROR_TRY_AGAIN = "An unexpected error occurred. Please try again later.";
 
 
 }

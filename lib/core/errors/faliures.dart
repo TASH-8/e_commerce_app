@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/utils/app_enums.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class Failure extends Equatable {
@@ -9,13 +10,22 @@ abstract class Failure extends Equatable {
 }
 
 class OfflineFailure extends Failure {
-  const OfflineFailure(String message) : super(message);
+  const OfflineFailure(super.message);
 }
 
+
 class ServerFailure extends Failure {
-  const ServerFailure(String message) : super(message);
+  const ServerFailure(super.message);
 }
 
 class EmptyCacheFailure extends Failure {
-  const EmptyCacheFailure(String message) : super(message);
+  const EmptyCacheFailure(super.message);
 }
+
+
+class FirebaseAuthFailure extends Failure {
+  final FirebaseAuthErrorType type;
+
+  const FirebaseAuthFailure(this.type) : super('');
+}
+

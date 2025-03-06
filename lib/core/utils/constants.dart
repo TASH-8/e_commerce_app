@@ -140,30 +140,34 @@ class Constants {
   static const String SearchSomthing = "Search Something";
   static const String GOTOCART = "SEE CART?";
 
-
-
-
-
-
-
   static const String ERROR = "Error";
   static const String EMAIL_EMPTY = "Email cannot be empty";
   static const String EMAIL_INVALID = "Enter a valid email";
   static const String USERNAME_EMPTY = "Username cannot be empty";
-  static const String USERNAME_SHORT = "Username must be at least 3 characters long";
+  static const String USERNAME_SHORT =
+      "Username must be at least 3 characters long";
   static const String PASSWORD_EMPTY = "Password cannot be empty";
-  static const String PASSWORD_SHORT = "Password must be at least 6 characters long";
-
-
-
+  static const String PASSWORD_SHORT =
+      "Password must be at least 6 characters long";
 
   static const String ERROR_UNEXPECTED = "An unexpected error occurred.";
   static const String ERROR_NO_INTERNET = "No internet connection.";
-  static const String ERROR_EMAIL_IN_USE = "The email address is already in use by another account.";
+  static const String ERROR_EMAIL_IN_USE =
+      "The email address is already in use by another account.";
   static const String ERROR_INVALID_EMAIL = "The email address is not valid.";
-  static const String ERROR_OPERATION_NOT_ALLOWED = "Email/password accounts are not enabled.";
+  static const String ERROR_OPERATION_NOT_ALLOWED =
+      "Email/password accounts are not enabled.";
   static const String ERROR_WEAK_PASSWORD = "The password is too weak.";
-  static const String ERROR_TRY_AGAIN = "An unexpected error occurred. Please try again later.";
+  static const String ERROR_TRY_AGAIN =
+      "An unexpected error occurred. Please try again later.";
 
+  static const String ERROR_TOO_MANY_REQUESTS =
+      "Too many failed attempts. Try again later.";
+  static const String ERROR_USER_DISABLED = "This account has been disabled.";
+  static const String ERROR_WRONG_PASSWORD =
+      "Incorrect password. Please try again.";
 
+  static const String ERROR_USER_NOT_FOUND = "No user found with this email.";
+  static const String ERROR_NETWORK_REQUEST_FAILED =
+      "Check your internet connection and try again.";
 }

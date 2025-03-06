@@ -2,6 +2,7 @@ import 'package:e_commerce_app/core/routing/app_router.dart';
 import 'package:e_commerce_app/core/utils/app_enums.dart';
 import 'package:e_commerce_app/core/utils/app_extensions.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
+import 'package:e_commerce_app/features/login/presentation/bloc/login_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:e_commerce_app/features/signup/presentation/bloc/signup_user_bloc.dart';
 import 'package:e_commerce_app/injection.dart';
@@ -31,7 +32,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final SignupUserBloc bloc = getIt<SignupUserBloc>();
+  final SignupUserBloc signupUserBloc = getIt<SignupUserBloc>();
+  final LoginBloc loginBloc = getIt<LoginBloc>();
+
   @override
   void initState() {
     super.initState();
@@ -57,7 +60,8 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => CartBloc(),
         ),
-        BlocProvider(create: (_) => bloc)
+        BlocProvider(create: (_) => signupUserBloc),
+        BlocProvider(create: (_) => loginBloc)
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter().router,

@@ -1,22 +1,22 @@
 import 'package:dartz/dartz.dart';
-import 'package:e_commerce_app/features/signup/data/models/user_model.dart';
-import 'package:e_commerce_app/features/signup/domain/entities/user_entitiy.dart';
+import 'package:e_commerce_app/features/signup/data/models/user_signup_model.dart';
+import 'package:e_commerce_app/features/signup/domain/entities/user_signup_entitiy.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
 // Abstract Remote Data Source
-abstract class UserRemoteDataSource {
-  Future<Unit> getUserData(UserModel user);
+abstract class UserSignupRemoteDataSource {
+  Future<Unit> getUserData(UserSignupModel user);
 }
 
-@LazySingleton(as: UserRemoteDataSource)
-class UserRemoteDataSourceImp implements UserRemoteDataSource {
+@LazySingleton(as: UserSignupRemoteDataSource)
+class UserSignupRemoteDataSourceImp implements UserSignupRemoteDataSource {
   final FirebaseAuth firebaseAuth;
 
-  UserRemoteDataSourceImp({required this.firebaseAuth});
+  UserSignupRemoteDataSourceImp({required this.firebaseAuth});
 
   @override
-  Future<Unit> getUserData(UserEntity user) async {
+  Future<Unit> getUserData(UserSignupEntity user) async {
     try {
       // ignore: unused_local_variable
       UserCredential userCredential =

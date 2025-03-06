@@ -14,4 +14,3 @@ class GetUserDataEvent extends SignupUserEvent {
   const GetUserDataEvent({required this.email, required this.password});
 }
 
-class WhenPressedEvent extends SignupUserEvent {}

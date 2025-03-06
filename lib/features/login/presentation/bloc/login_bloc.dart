@@ -1,38 +1,46 @@
 import 'package:e_commerce_app/core/utils/app_enums.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce_app/core/errors/faliures.dart';
-import 'package:e_commerce_app/features/signup/data/models/user_signup_model.dart';
-import 'package:e_commerce_app/features/signup/domain/usecases/user_signup_usecase.dart';
+import 'package:e_commerce_app/features/login/data/models/user_login_models.dart';
+import 'package:e_commerce_app/features/login/domain/usecases/user_login_usecase.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 
-part 'signup_user_event.dart';
-part 'signup_user_state.dart';
+part 'login_event.dart';
+part 'login_state.dart';
 
 @injectable
-class SignupUserBloc extends Bloc<SignupUserEvent, SignupUserState> {
-  final GetUserSignupDataUsecase getAllData;
-  SignupUserBloc({required this.getAllData}) : super(const SignupUserState()) {
-    on<GetUserDataEvent>((event, emit) async {
-      emit(state.copyWith(status: UserStatus.loading));
+class LoginBloc extends Bloc<LoginEvent, LoginState> {
+  final GetUserLoginDataUsecase getAllData;
 
-      final userModel = UserSignupModel(
-        uid: '', // UID is empty at signup
-        email: event.email,
-        password: event.password,
-      );
+  LoginBloc({required this.getAllData}) : super(const LoginState()) {
+    on<LoginEvent>(
+      (event, emit) async {
+        if (event is GetUserLoginDataEvent) {
+          emit(state.copyWith(status: LoginStateStatus.loading));
 
-      final failureOrUnit = await getAllData(userModel);
-      failureOrUnit.fold(
-        (failure) => emit(state.copyWith(
-          status: UserStatus.error,
-          message: _mapFailureToMessage(failure),
-        )),
-        (_) => emit(state.copyWith(
-          status: UserStatus.loaded,
-        )),
-      );
-    });
+          final userModel = UserLoginModels(
+            email: event.email,
+            password: event.password,
+          );
+
+          final failureOrUnit = await getAllData(userModel);
+          failureOrUnit.fold(
+            (failure) => emit(
+              state.copyWith(
+                status: LoginStateStatus.error,
+                message: _mapFailureToMessage(failure),
+              ),
+            ),
+            (_) => emit(
+              state.copyWith(
+                status: LoginStateStatus.success,
+              ),
+            ),
+          );
+        }
+      },
+    );
   }
 }
 
@@ -60,7 +68,7 @@ String _mapFailureToMessage(Failure failure) {
       case FirebaseAuthErrorType.unexpected:
         return 'An unexpected error occurred. Try again.';
       case FirebaseAuthErrorType.invalidCredential:
-        return 'Please check your email and password and try again';
+        return 'Invalid credentials. Please check your email and password.';
     }
   } else if (failure is ServerFailure) {
     return 'Server error.';

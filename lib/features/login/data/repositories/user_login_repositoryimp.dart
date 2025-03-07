@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:e_commerce_app/core/errors/error_handler.dart';
 import 'package:e_commerce_app/core/errors/faliures.dart';
 import 'package:e_commerce_app/core/network/network_info.dart';
 import 'package:e_commerce_app/core/utils/app_enums.dart';
@@ -33,29 +34,3 @@ class UserLoginRepositoryImp implements UserLoginRepository {
   }
 }
 
-FirebaseAuthErrorType mapFirebaseErrorCode(String code) {
-  switch (code) {
-    case 'email-already-in-use':
-      return FirebaseAuthErrorType.emailAlreadyInUse;
-    case 'invalid-email':
-      return FirebaseAuthErrorType.invalidEmail;
-    case 'operation-not-allowed':
-      return FirebaseAuthErrorType.operationNotAllowed;
-    case 'weak-password':
-      return FirebaseAuthErrorType.weakPassword;
-    case 'user-not-found':
-      return FirebaseAuthErrorType.userNotFound;
-    case 'wrong-password':
-      return FirebaseAuthErrorType.wrongPassword;
-    case 'user-disabled':
-      return FirebaseAuthErrorType.userDisabled;
-    case 'too-many-requests':
-      return FirebaseAuthErrorType.tooManyRequests;
-    case 'network-request-failed':
-      return FirebaseAuthErrorType.networkRequestFailed;
-    case 'invalid-credential':
-      return FirebaseAuthErrorType.invalidCredential; // 🔥 Add this line
-    default:
-      return FirebaseAuthErrorType.unexpected;
-  }
-}

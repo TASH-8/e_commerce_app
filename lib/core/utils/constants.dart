@@ -91,12 +91,12 @@ class Constants {
   static const String MENAPPAREL = "Men's Apparel";
   static const String USERNAME = "User Name";
   static const String EDITPROFILE = "EDIT PROFILE";
-
+static const String PASSWORDSENT = "Password reset email sent!" ;
   static const String allMyOrders = 'All My Orders';
   static const String pendingShipments = 'Pending Shipments';
   static const String pendingPayments = 'Pending Payments';
   static const String finishedOrders = 'Finished Orders';
-
+static const String   SUCCESS = "Success";
   // Profile Actions
   static const String inviteFriends = 'Invite Friends';
   static const String customerSupport = 'Customer Support';

@@ -15,8 +15,17 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
     as _i161;
 
 import 'core/network/network_info.dart' as _i75;
+import 'features/forget_password/data/datasources/user_forget_datasource.dart'
+    as _i922;
+import 'features/forget_password/data/repo/user_forget_repo_imp.dart' as _i359;
+import 'features/forget_password/domain/repo/forget_user_repo.dart' as _i362;
+import 'features/forget_password/domain/usecases/forget_user_usecase.dart'
+    as _i408;
+import 'features/forget_password/presentation/bloc/user_forget_bloc.dart'
+    as _i881;
 import 'features/login/data/datasources/user_login_datasources.dart' as _i995;
-import 'features/login/data/repositories/user_login_repository.dart' as _i872;
+import 'features/login/data/repositories/user_login_repositoryimp.dart'
+    as _i152;
 import 'features/login/domain/repositories/user_login_repository.dart' as _i575;
 import 'features/login/domain/usecases/user_login_usecase.dart' as _i45;
 import 'features/login/presentation/bloc/login_bloc.dart' as _i1070;
@@ -56,17 +65,28 @@ _i174.GetIt $initGetIt(
             gh<_i75.NetworkInfo>(),
             remoteDataSource: gh<_i835.UserSignupRemoteDataSource>(),
           ));
-  gh.lazySingleton<_i14.GetUserSignupDataUsecase>(
-      () => _i14.GetUserSignupDataUsecase(gh<_i994.UserSignUpRepository>()));
+  gh.lazySingleton<_i922.UserForgetRemoteDataSource>(() =>
+      _i922.UserForgetRemoteDataSourceImp(
+          firebaseAuth: gh<_i59.FirebaseAuth>()));
+  gh.lazySingleton<_i362.UserForgetRepo>(() => _i359.UserForgetRepoImp(
+        gh<_i922.UserForgetRemoteDataSource>(),
+        gh<_i75.NetworkInfo>(),
+      ));
   gh.lazySingleton<_i575.UserLoginRepository>(
-      () => _i872.UserLoginRepositoryImp(
+      () => _i152.UserLoginRepositoryImp(
             gh<_i995.UserLoginRemoteDataSource>(),
             gh<_i75.NetworkInfo>(),
           ));
+  gh.lazySingleton<_i14.GetUserSignupDataUsecase>(
+      () => _i14.GetUserSignupDataUsecase(gh<_i994.UserSignUpRepository>()));
+  gh.lazySingleton<_i408.GetUserLoginDataUsecase>(
+      () => _i408.GetUserLoginDataUsecase(gh<_i362.UserForgetRepo>()));
   gh.lazySingleton<_i45.GetUserLoginDataUsecase>(
       () => _i45.GetUserLoginDataUsecase(gh<_i575.UserLoginRepository>()));
   gh.factory<_i889.SignupUserBloc>(() =>
       _i889.SignupUserBloc(getAllData: gh<_i14.GetUserSignupDataUsecase>()));
+  gh.factory<_i881.UserForgetBloc>(() =>
+      _i881.UserForgetBloc(getAllData: gh<_i408.GetUserLoginDataUsecase>()));
   gh.factory<_i1070.LoginBloc>(
       () => _i1070.LoginBloc(getAllData: gh<_i45.GetUserLoginDataUsecase>()));
   return getIt;

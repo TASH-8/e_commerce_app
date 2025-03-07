@@ -23,8 +23,7 @@ Future<Unit> getUserData(UserLoginModels user) async {
     );
     return unit;
   } on FirebaseAuthException catch (e) {
-    print('🔥 RemoteDataSource Error: ${e.code}');
-    throw e; // ✅ MUST throw to bubble up
+    throw e; 
   }
 }
 

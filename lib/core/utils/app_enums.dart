@@ -12,6 +12,6 @@ enum FirebaseAuthErrorType {
   userDisabled,
   tooManyRequests,
   networkRequestFailed,
-  invalidCredential, // 🔥 Add this
+  invalidCredential, 
   unexpected,
 }

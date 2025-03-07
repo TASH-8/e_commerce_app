@@ -1,6 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
-import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -58,22 +56,38 @@ class SignUpLogInForgotBtn extends StatelessWidget {
       );
     } else if (isResetButton == true) {
       return ElevatedButton(
-        onPressed: () {},
+        onPressed: isLoading ? null : onpressed, // ✅ Disable when loading
         style: ElevatedButton.styleFrom(
-          backgroundColor: ColorManger.redAccentCustom,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
-          ),
           padding: EdgeInsets.symmetric(
             vertical: screenHeight * 0.02,
             horizontal: screenWidth * 0.3,
           ),
+          backgroundColor:
+              ColorManger.redAccentCustom, // ✅ Keep exact red color
+          shape: RoundedRectangleBorder(
+            borderRadius:
+                BorderRadius.circular(30), // ✅ Keep exact border radius
+          ),
+          elevation: 4, // ✅ Maintain slight elevation for shadow effect
         ),
-        child: const AutoSizeText(
-          Constants.SEND_EMAIL,
-          style: TextStyles.font18WhiteBold,
-          maxLines: 1,
-        ),
+        child: isLoading
+            ? SizedBox(
+                width: screenWidth * 0.06,
+                height: screenHeight * 0.03,
+                child: const CircularProgressIndicator(
+                  strokeWidth: 3, // ✅ Match thickness
+                  color: Colors.white,
+                ),
+              ) // ✅ Loading replaces text
+            : Text(
+                Constants.SEND_EMAIL, // ✅ Exact text
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: screenHeight * 0.025, // ✅ Match text size
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.2, // ✅ Keep spacing
+                ),
+              ),
       );
     } else {
       return ElevatedButton(

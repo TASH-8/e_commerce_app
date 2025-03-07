@@ -4,7 +4,7 @@ import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/core/widgets/login_forgot_row.dart';
 import 'package:e_commerce_app/core/widgets/signup_login_btn_forgot.dart';
-import 'package:e_commerce_app/features/forget_reset/presentation/widgets/terms_and_policy_btn.dart';
+import 'package:e_commerce_app/features/forget_password/presentation/widgets/terms_and_policy_btn.dart';
 import 'package:e_commerce_app/features/signup/presentation/bloc/signup_user_bloc.dart';
 import 'package:e_commerce_app/features/signup/presentation/widgets/email_textfield.dart';
 import 'package:e_commerce_app/features/signup/presentation/widgets/password_textfield.dart';

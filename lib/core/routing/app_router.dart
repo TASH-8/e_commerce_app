@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/features/cart/presentation/pages/cart_screen.dart';
-import 'package:e_commerce_app/features/forget_reset/presentation/pages/forgot_page.dart';
+import 'package:e_commerce_app/features/forget_password/presentation/pages/forgot_page.dart';
 import 'package:e_commerce_app/features/home/presentation/pages/homescreen.dart';
 import 'package:e_commerce_app/features/login/presentation/pages/login_page.dart';
 import 'package:e_commerce_app/features/product/presentation/pages/product_preview_page.dart';

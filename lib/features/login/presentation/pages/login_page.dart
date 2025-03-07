@@ -3,13 +3,12 @@ import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/widgets/signup_login_btn_forgot.dart';
 import 'package:e_commerce_app/features/signup/presentation/widgets/email_textfield.dart';
 import 'package:e_commerce_app/features/signup/presentation/widgets/password_textfield.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/core/widgets/login_forgot_row.dart';
-import 'package:e_commerce_app/features/forget_reset/presentation/widgets/terms_and_policy_btn.dart';
+import 'package:e_commerce_app/features/forget_password/presentation/widgets/terms_and_policy_btn.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,7 +24,7 @@ class LoginScreen extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
     final TextEditingController email = TextEditingController();
     final TextEditingController password = TextEditingController();
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
       appBar: AppBar(
@@ -42,7 +41,7 @@ class LoginScreen extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
             child: Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -56,34 +55,11 @@ class LoginScreen extends StatelessWidget {
 
                   // Navigation Row
                   CustomLoginAndForgotRow(
-                    screenWidth: screenWidth,
-                    isLoginScreen: true,
-                    forgetOnpressed: () async {
-                      if (email.text == "") {
-                        AwesomeDialog(
-                          context: context,
-                          dialogType: DialogType.error,
-                          animType: AnimType.rightSlide,
-                          title: 'Enter an email',
-                          desc: 'Enter an email to reset password',
-                        ).show();
-                        return;
-                      }
-                      try {
-                        FirebaseAuth.instance
-                            .sendPasswordResetEmail(email: email.text);
-                      } catch (e) {
-                        AwesomeDialog(
-                          context: context,
-                          dialogType: DialogType.info,
-                          animType: AnimType.rightSlide,
-                          title: 'Reset Password',
-                          desc:
-                              'A password reset link has been sent to your email',
-                        ).show();
-                      }
-                    },
-                  ),
+                      screenWidth: screenWidth,
+                      isLoginScreen: true,
+                      forgetOnpressed: () {
+                        context.push('/forget');
+                      }),
 
                   SizedBox(height: screenHeight * 0.04),
 

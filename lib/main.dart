@@ -2,6 +2,7 @@ import 'package:e_commerce_app/core/routing/app_router.dart';
 import 'package:e_commerce_app/core/utils/app_enums.dart';
 import 'package:e_commerce_app/core/utils/app_extensions.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
+import 'package:e_commerce_app/features/forget_password/presentation/bloc/user_forget_bloc.dart';
 import 'package:e_commerce_app/features/login/presentation/bloc/login_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
 import 'package:e_commerce_app/features/signup/presentation/bloc/signup_user_bloc.dart';
@@ -10,13 +11,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'firebase_options.dart'; // Import Firebase options
+import 'firebase_options.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies(); // Initialize dependency injection
+  configureDependencies();
 
-  // Ensure Firebase is initialized with the generated options
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -34,6 +34,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final SignupUserBloc signupUserBloc = getIt<SignupUserBloc>();
   final LoginBloc loginBloc = getIt<LoginBloc>();
+  final UserForgetBloc forgetbloc = getIt<UserForgetBloc>();
 
   @override
   void initState() {
@@ -61,7 +62,8 @@ class _MyAppState extends State<MyApp> {
           create: (context) => CartBloc(),
         ),
         BlocProvider(create: (_) => signupUserBloc),
-        BlocProvider(create: (_) => loginBloc)
+        BlocProvider(create: (_) => loginBloc),
+        BlocProvider(create: (_) => forgetbloc)
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter().router,

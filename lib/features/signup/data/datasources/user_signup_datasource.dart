@@ -4,7 +4,6 @@ import 'package:e_commerce_app/features/signup/domain/entities/user_signup_entit
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
-// Abstract Remote Data Source
 abstract class UserSignupRemoteDataSource {
   Future<Unit> getUserData(UserSignupModel user);
 }

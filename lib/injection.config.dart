@@ -29,6 +29,11 @@ import 'features/login/data/repositories/user_login_repositoryimp.dart'
 import 'features/login/domain/repositories/user_login_repository.dart' as _i575;
 import 'features/login/domain/usecases/user_login_usecase.dart' as _i45;
 import 'features/login/presentation/bloc/login_bloc.dart' as _i1070;
+import 'features/more/data/datasources/logout_remotedatasource.dart' as _i141;
+import 'features/more/data/repo/logout_repo_imp.dart' as _i398;
+import 'features/more/domain/repo/logout_repo.dart' as _i257;
+import 'features/more/domain/usecases/logout_usecase.dart' as _i763;
+import 'features/more/presentation/bloc/logout_bloc.dart' as _i554;
 import 'features/signup/data/datasources/user_signup_datasource.dart' as _i835;
 import 'features/signup/data/repositories/user_signup_repostoryImp.dart'
     as _i380;
@@ -60,6 +65,8 @@ _i174.GetIt $initGetIt(
           firebaseAuth: gh<_i59.FirebaseAuth>()));
   gh.lazySingleton<_i75.NetworkInfo>(
       () => _i75.NetworkInfoImpl(gh<_i161.InternetConnection>()));
+  gh.lazySingleton<_i141.LogoutRemoteDataSource>(() =>
+      _i141.LogoutRemotedatasourceImp(firebaseAuth: gh<_i59.FirebaseAuth>()));
   gh.lazySingleton<_i994.UserSignUpRepository>(
       () => _i380.UserSignupRepositoryImp(
             gh<_i75.NetworkInfo>(),
@@ -68,6 +75,10 @@ _i174.GetIt $initGetIt(
   gh.lazySingleton<_i922.UserForgetRemoteDataSource>(() =>
       _i922.UserForgetRemoteDataSourceImp(
           firebaseAuth: gh<_i59.FirebaseAuth>()));
+  gh.lazySingleton<_i257.LogoutRepo>(() => _i398.LogoutRepoImp(
+        networkInfo: gh<_i75.NetworkInfo>(),
+        remoteDataSource: gh<_i141.LogoutRemoteDataSource>(),
+      ));
   gh.lazySingleton<_i362.UserForgetRepo>(() => _i359.UserForgetRepoImp(
         gh<_i922.UserForgetRemoteDataSource>(),
         gh<_i75.NetworkInfo>(),
@@ -87,6 +98,10 @@ _i174.GetIt $initGetIt(
       _i889.SignupUserBloc(getAllData: gh<_i14.GetUserSignupDataUsecase>()));
   gh.factory<_i881.UserForgetBloc>(() =>
       _i881.UserForgetBloc(getAllData: gh<_i408.GetUserLoginDataUsecase>()));
+  gh.lazySingleton<_i763.LogoutUsecase>(
+      () => _i763.LogoutUsecase(gh<_i257.LogoutRepo>()));
+  gh.factory<_i554.LogoutBloc>(
+      () => _i554.LogoutBloc(logoutUsecase: gh<_i763.LogoutUsecase>()));
   gh.factory<_i1070.LoginBloc>(
       () => _i1070.LoginBloc(getAllData: gh<_i45.GetUserLoginDataUsecase>()));
   return getIt;

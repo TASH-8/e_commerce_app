@@ -18,17 +18,20 @@ class CustomLoginAndForgotRow extends StatelessWidget {
   final onpressed;
   final email;
   final forgetOnpressed;
+
   @override
   Widget build(BuildContext context) {
-    if (isLoginScreen == true) {
+    if (isLoginScreen) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextBtnLogInSignUp(
-            email: email,
-            isLoginScreen: true,
-            onpressed: onpressed,
-            forgetOnpressed: forgetOnpressed,
+          Flexible(
+            child: TextBtnLogInSignUp(
+              email: email,
+              isLoginScreen: true,
+              onpressed: onpressed,
+              forgetOnpressed: forgetOnpressed,
+            ),
           ),
           SizedBox(width: screenWidth * 0.05),
         ],
@@ -38,15 +41,19 @@ class CustomLoginAndForgotRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextBtnLogInSignUp(
-          onpressed: onpressed,
-          isLoginScreen: false,
+        Flexible(
+          child: TextBtnLogInSignUp(
+            onpressed: onpressed,
+            isLoginScreen: false,
+          ),
         ),
         SizedBox(width: screenWidth * 0.05),
-        const AutoSizeText(
-          Constants.FORGOT,
-          style: TextStyles.font17GreyNormal,
-          maxLines: 1,
+        Flexible(
+          child: const AutoSizeText(
+            Constants.FORGOT,
+            style: TextStyles.font17GreyNormal,
+            maxLines: 1,
+          ),
         ),
       ],
     );

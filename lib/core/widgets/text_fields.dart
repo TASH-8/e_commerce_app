@@ -9,16 +9,16 @@ class Textfields extends StatelessWidget {
   final double screenHeight;
   final TextEditingController? controller;
   final String? Function(String?)? validator; // ✅ Validator function
-
-  const Textfields({
-    super.key,
-    required this.icon,
-    required this.hintText,
-    this.isPassword = false,
-    required this.screenHeight,
-    this.controller,
-    this.validator,
-  });
+  final TextInputType? keyboardType;
+  const Textfields(
+      {super.key,
+      required this.icon,
+      required this.hintText,
+      this.isPassword = false,
+      required this.screenHeight,
+      this.controller,
+      this.validator,
+      this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +31,7 @@ class Textfields extends StatelessWidget {
         valueListenable: isObscure,
         builder: (context, value, child) {
           return TextFormField(
+            keyboardType: keyboardType,
             controller: controller,
             obscureText: value, // Use the state to toggle visibility
             autovalidateMode:

@@ -11,15 +11,21 @@ import 'package:e_commerce_app/features/forget_password/presentation/widgets/ter
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
+class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
+
+  @override
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+}
+
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  final TextEditingController email = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    final TextEditingController email = TextEditingController();
-    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
       appBar: AppBar(
@@ -72,8 +78,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       SizedBox(height: screenHeight * 0.08),
 
                       const AutoSizeText(
-                        Constants
-                            .FORGOT_PASSWORD_INFO, 
+                        Constants.FORGOT_PASSWORD_INFO,
                         style: TextStyles.font15GreyNormal,
                         textAlign: TextAlign.center,
                         maxLines: 2,

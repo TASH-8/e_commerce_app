@@ -14,17 +14,25 @@ import 'package:go_router/go_router.dart';
 
 import '../bloc/login_bloc.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController email = TextEditingController();
+
+  final TextEditingController password = TextEditingController();
+
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     // Fetch screen dimensions for responsiveness
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
-    final TextEditingController email = TextEditingController();
-    final TextEditingController password = TextEditingController();
-    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
       appBar: AppBar(
@@ -36,83 +44,88 @@ class LoginScreen extends StatelessWidget {
             icon: const Icon(Icons.undo)),
       ),
       backgroundColor: ColorManger.greyshade100,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-            child: Form(
-              key: formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Title
-                  const AutoSizeText(
-                    Constants.LOGIN,
-                    style: TextStyles.font31BlackBold,
-                    maxLines: 1,
-                  ),
-                  SizedBox(height: screenHeight * 0.02),
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: screenHeight,
+          ),
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Title
+                    const AutoSizeText(
+                      Constants.LOGIN,
+                      style: TextStyles.font31BlackBold,
+                      maxLines: 1,
+                    ),
+                    SizedBox(height: screenHeight * 0.02),
 
-                  // Navigation Row
-                  CustomLoginAndForgotRow(
-                      screenWidth: screenWidth,
-                      isLoginScreen: true,
-                      forgetOnpressed: () {
-                        context.push('/forget');
-                      }),
+                    // Navigation Row
+                    CustomLoginAndForgotRow(
+                        screenWidth: screenWidth,
+                        isLoginScreen: true,
+                        forgetOnpressed: () {
+                          context.push('/forget');
+                        }),
 
-                  SizedBox(height: screenHeight * 0.04),
+                    SizedBox(height: screenHeight * 0.04),
 
-                  // Email TextField
-                  EmailTextField(email: email),
-                  SizedBox(height: screenHeight * 0.02),
+                    // Email TextField
+                    EmailTextField(email: email),
+                    SizedBox(height: screenHeight * 0.02),
 
-                  // Password TextField
-                  PasswordTextField(password: password),
-                  SizedBox(height: screenHeight * 0.03),
+                    // Password TextField
+                    PasswordTextField(password: password),
+                    SizedBox(height: screenHeight * 0.03),
 
-                  // Log In Button
-                  BlocConsumer<LoginBloc, LoginState>(
-                    listener: (context, state) {
-                      if (state.status == LoginStateStatus.error) {
-                        AwesomeDialog(
-                          context: context,
-                          dialogType: DialogType.warning,
-                          animType: AnimType.bottomSlide,
-                          title: Constants.ERROR,
-                          desc: state.message,
-                        ).show();
-                      } else if (state.status == LoginStateStatus.success) {
-                        context.pushReplacement('/home');
-                      }
-                    },
-                    builder: (context, state) {
-                      return SignUpLogInForgotBtn(
-                        isLoginsbutton: true,
-                        isResetButton: false,
-                        isLoading: state.status == LoginStateStatus.loading,
-                        onpressed: () {
-                          context.read<LoginBloc>().add(
-                                GetUserLoginDataEvent(
-                                  email: email.text,
-                                  password: password.text,
-                                ),
-                              );
-                        },
-                      );
-                    },
-                  ),
-                  SizedBox(height: screenHeight * 0.02),
+                    // Log In Button
+                    BlocConsumer<LoginBloc, LoginState>(
+                      listener: (context, state) {
+                        if (state.status == LoginStateStatus.error) {
+                          AwesomeDialog(
+                            context: context,
+                            dialogType: DialogType.warning,
+                            animType: AnimType.bottomSlide,
+                            title: Constants.ERROR,
+                            desc: state.message,
+                          ).show();
+                        } else if (state.status == LoginStateStatus.success) {
+                          context.pushReplacement('/home');
+                        }
+                      },
+                      builder: (context, state) {
+                        return SignUpLogInForgotBtn(
+                          isLoginsbutton: true,
+                          isResetButton: false,
+                          isLoading: state.status == LoginStateStatus.loading,
+                          onpressed: () {
+                            context.read<LoginBloc>().add(
+                                  GetUserLoginDataEvent(
+                                    email: email.text,
+                                    password: password.text,
+                                  ),
+                                );
+                          },
+                        );
+                      },
+                    ),
+                    SizedBox(height: screenHeight * 0.02),
 
-                  // Terms of Service
-                  const AutoSizeText(
-                    Constants.ByLoggingIn,
-                    style: TextStyles.font15GreyNormal,
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                  ),
-                  const TermsAndPolicyBTN(),
-                ],
+                    // Terms of Service
+                    const AutoSizeText(
+                      Constants.ByLoggingIn,
+                      style: TextStyles.font15GreyNormal,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                    ),
+                    const TermsAndPolicyBTN(),
+                  ],
+                ),
               ),
             ),
           ),

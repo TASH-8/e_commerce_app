@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/core/utils/constants.dart';
 import 'package:e_commerce_app/core/widgets/text_fields.dart';
 import 'package:flutter/material.dart';
+
 class EmailTextField extends StatelessWidget {
   const EmailTextField({
     super.key,
@@ -14,6 +15,7 @@ class EmailTextField extends StatelessWidget {
     final double screenHeight = MediaQuery.of(context).size.height;
 
     return Textfields(
+      keyboardType: TextInputType.emailAddress,
       icon: Icons.email,
       hintText: Constants.EMAILTEXTHINT,
       screenHeight: screenHeight,

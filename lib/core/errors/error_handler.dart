@@ -36,7 +36,6 @@ String mapFailureToMessage(Failure failure) {
   }
 }
 
-
 FirebaseAuthErrorType mapFirebaseErrorCode(String code) {
   switch (code) {
     case 'email-already-in-use':
@@ -58,7 +57,7 @@ FirebaseAuthErrorType mapFirebaseErrorCode(String code) {
     case 'network-request-failed':
       return FirebaseAuthErrorType.networkRequestFailed;
     case 'invalid-credential':
-      return FirebaseAuthErrorType.invalidCredential; // 🔥 Add this line
+      return FirebaseAuthErrorType.invalidCredential;
     default:
       return FirebaseAuthErrorType.unexpected;
   }

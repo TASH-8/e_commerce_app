@@ -11,31 +11,29 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final GetUserLoginDataUsecase getAllData;
   LoginBloc({required this.getAllData}) : super(const LoginState()) {
-    on<LoginEvent>(
+    on<GetUserLoginDataEvent>(
       (event, emit) async {
-        if (event is GetUserLoginDataEvent) {
-          emit(state.copyWith(status: LoginStateStatus.loading));
+        emit(state.copyWith(status: LoginStateStatus.loading));
 
-          final userModel = UserLoginModels(
-            email: event.email,
-            password: event.password,
-          );
+        final userModel = UserLoginModels(
+          email: event.email,
+          password: event.password,
+        );
 
-          final failureOrUnit = await getAllData(userModel);
-          failureOrUnit.fold(
-            (failure) => emit(
-              state.copyWith(
-                status: LoginStateStatus.error,
-                message: mapFailureToMessage(failure),
-              ),
+        final failureOrUnit = await getAllData(userModel);
+        failureOrUnit.fold(
+          (failure) => emit(
+            state.copyWith(
+              status: LoginStateStatus.error,
+              message: mapFailureToMessage(failure),
             ),
-            (_) => emit(
-              state.copyWith(
-                status: LoginStateStatus.success,
-              ),
+          ),
+          (_) => emit(
+            state.copyWith(
+              status: LoginStateStatus.success,
             ),
-          );
-        }
+          ),
+        );
       },
     );
   }

@@ -29,12 +29,12 @@ class SignUpScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ColorManger.greyshade100,
-      body: Center(
-        child: SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height,
-            ),
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: screenHeight,
+          ),
+          child: Center(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
               child: Form(
@@ -56,7 +56,7 @@ class SignUpScreen extends StatelessWidget {
                     SizedBox(height: screenHeight * 0.04),
 
                     // Email TextField
-                    EmailTextField(email: email),
+                    EmailTextField(email: email,),
                     SizedBox(height: screenHeight * 0.02),
 
                     // Username TextField

@@ -24,7 +24,7 @@ class SignUpLogInForgotBtn extends StatelessWidget {
         onPressed: isLoading ? null : onpressed, // ✅ Disable when loading
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(
-            vertical: screenHeight * 0.02,
+            vertical: screenHeight * 0.008,
             horizontal: screenWidth * 0.3,
           ),
           backgroundColor:
@@ -59,7 +59,7 @@ class SignUpLogInForgotBtn extends StatelessWidget {
         onPressed: isLoading ? null : onpressed, // ✅ Disable when loading
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(
-            vertical: screenHeight * 0.02,
+            vertical: screenHeight * 0.008,
             horizontal: screenWidth * 0.3,
           ),
           backgroundColor:
@@ -94,7 +94,7 @@ class SignUpLogInForgotBtn extends StatelessWidget {
         onPressed: isLoading ? null : onpressed, // ✅ Disable when loading
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.symmetric(
-            vertical: screenHeight * 0.02,
+            vertical: screenHeight * 0.008,
             horizontal: screenWidth * 0.3,
           ),
           backgroundColor:

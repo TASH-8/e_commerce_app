@@ -15,6 +15,7 @@ class PasswordTextField extends StatelessWidget {
     final double screenHeight = MediaQuery.of(context).size.height;
 
     return Textfields(
+      keyboardType: TextInputType.visiblePassword,
       icon: Icons.lock,
       hintText: Constants.PASSWORD,
       screenHeight: screenHeight,

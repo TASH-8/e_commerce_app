@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_state.dart';
 import 'package:equatable/equatable.dart';
 

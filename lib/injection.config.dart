@@ -8,6 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:cloud_firestore/cloud_firestore.dart' as _i974;
 import 'package:firebase_auth/firebase_auth.dart' as _i59;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -23,6 +24,11 @@ import 'features/forget_password/domain/usecases/forget_user_usecase.dart'
     as _i408;
 import 'features/forget_password/presentation/bloc/user_forget_bloc.dart'
     as _i881;
+import 'features/home/data/datasources/items_remotedatasource.dart' as _i796;
+import 'features/home/data/repo/items_repoimp.dart' as _i278;
+import 'features/home/domain/repo/items_repo.dart' as _i285;
+import 'features/home/domain/usecases/getitems_usecase.dart' as _i455;
+import 'features/home/presentation/bloc/items_bloc.dart' as _i325;
 import 'features/login/data/datasources/user_login_datasources.dart' as _i995;
 import 'features/login/data/repositories/user_login_repositoryimp.dart'
     as _i152;
@@ -35,8 +41,8 @@ import 'features/more/domain/repo/logout_repo.dart' as _i257;
 import 'features/more/domain/usecases/logout_usecase.dart' as _i763;
 import 'features/more/presentation/bloc/logout_bloc.dart' as _i554;
 import 'features/signup/data/datasources/user_signup_datasource.dart' as _i835;
-import 'features/signup/data/repositories/user_signup_repostoryImp.dart'
-    as _i380;
+import 'features/signup/data/repositories/user_signup_repostoryimp.dart'
+    as _i309;
 import 'features/signup/domain/repositories/user_signup_repository.dart'
     as _i994;
 import 'features/signup/domain/usecases/user_signup_usecase.dart' as _i14;
@@ -57,6 +63,8 @@ _i174.GetIt $initGetIt(
   final injectionModules = _$InjectionModules();
   gh.lazySingleton<_i161.InternetConnection>(
       () => injectionModules.connectionChecker);
+  gh.lazySingleton<_i796.ItemsRemotedatasource>(() =>
+      _i796.ItemsRemotedatasourceImp(fireStore: gh<_i974.FirebaseFirestore>()));
   gh.lazySingleton<_i835.UserSignupRemoteDataSource>(() =>
       _i835.UserSignupRemoteDataSourceImp(
           firebaseAuth: gh<_i59.FirebaseAuth>()));
@@ -67,14 +75,17 @@ _i174.GetIt $initGetIt(
       () => _i75.NetworkInfoImpl(gh<_i161.InternetConnection>()));
   gh.lazySingleton<_i141.LogoutRemoteDataSource>(() =>
       _i141.LogoutRemotedatasourceImp(firebaseAuth: gh<_i59.FirebaseAuth>()));
-  gh.lazySingleton<_i994.UserSignUpRepository>(
-      () => _i380.UserSignupRepositoryImp(
-            gh<_i75.NetworkInfo>(),
-            remoteDataSource: gh<_i835.UserSignupRemoteDataSource>(),
-          ));
   gh.lazySingleton<_i922.UserForgetRemoteDataSource>(() =>
       _i922.UserForgetRemoteDataSourceImp(
           firebaseAuth: gh<_i59.FirebaseAuth>()));
+  gh.lazySingleton<_i285.ItemsRepo>(() => _i278.ItemsRepoimp(
+        remotedatasource: gh<_i796.ItemsRemotedatasource>(),
+        networkInfo: gh<_i75.NetworkInfo>(),
+      ));
+  gh.lazySingleton<_i455.GetitemsUsecase>(
+      () => _i455.GetitemsUsecase(gh<_i285.ItemsRepo>()));
+  gh.factory<_i325.ItemsBloc>(
+      () => _i325.ItemsBloc(getAllitems: gh<_i455.GetitemsUsecase>()));
   gh.lazySingleton<_i257.LogoutRepo>(() => _i398.LogoutRepoImp(
         networkInfo: gh<_i75.NetworkInfo>(),
         remoteDataSource: gh<_i141.LogoutRemoteDataSource>(),
@@ -88,22 +99,27 @@ _i174.GetIt $initGetIt(
             gh<_i995.UserLoginRemoteDataSource>(),
             gh<_i75.NetworkInfo>(),
           ));
-  gh.lazySingleton<_i14.GetUserSignupDataUsecase>(
-      () => _i14.GetUserSignupDataUsecase(gh<_i994.UserSignUpRepository>()));
+  gh.lazySingleton<_i994.UserSignUpRepository>(
+      () => _i309.UserSignupRepositoryImp(
+            gh<_i75.NetworkInfo>(),
+            remoteDataSource: gh<_i835.UserSignupRemoteDataSource>(),
+          ));
   gh.lazySingleton<_i408.GetUserLoginDataUsecase>(
       () => _i408.GetUserLoginDataUsecase(gh<_i362.UserForgetRepo>()));
   gh.lazySingleton<_i45.GetUserLoginDataUsecase>(
       () => _i45.GetUserLoginDataUsecase(gh<_i575.UserLoginRepository>()));
-  gh.factory<_i889.SignupUserBloc>(() =>
-      _i889.SignupUserBloc(getAllData: gh<_i14.GetUserSignupDataUsecase>()));
   gh.factory<_i881.UserForgetBloc>(() =>
       _i881.UserForgetBloc(getAllData: gh<_i408.GetUserLoginDataUsecase>()));
   gh.lazySingleton<_i763.LogoutUsecase>(
       () => _i763.LogoutUsecase(gh<_i257.LogoutRepo>()));
+  gh.lazySingleton<_i14.GetUserSignupDataUsecase>(
+      () => _i14.GetUserSignupDataUsecase(gh<_i994.UserSignUpRepository>()));
   gh.factory<_i554.LogoutBloc>(
       () => _i554.LogoutBloc(logoutUsecase: gh<_i763.LogoutUsecase>()));
   gh.factory<_i1070.LoginBloc>(
       () => _i1070.LoginBloc(getAllData: gh<_i45.GetUserLoginDataUsecase>()));
+  gh.factory<_i889.SignupUserBloc>(() =>
+      _i889.SignupUserBloc(getAllData: gh<_i14.GetUserSignupDataUsecase>()));
   return getIt;
 }
 

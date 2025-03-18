@@ -28,7 +28,7 @@ class MenAndWomenListPreview extends StatelessWidget {
                 style: TextStyles.font17GreyBold,
               ),
               SizedBox(height: screenHeight * 0.01),
-              MenAndWomenApparel(
+              const MenAndWomenApparel(
                 clothingItems: men_clothing_items,
               ), // Scrollable Men's Apparel
               SizedBox(height: screenHeight * 0.02),
@@ -41,7 +41,7 @@ class MenAndWomenListPreview extends StatelessWidget {
                 style: TextStyles.font17GreyBold,
               ),
               SizedBox(height: screenHeight * 0.01),
-              MenAndWomenApparel(
+              const MenAndWomenApparel(
                 clothingItems: women_clothing_items,
               ), // Scrollable Women's Apparel
             ],

@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:e_commerce_app/features/categories/presentation/widgets/animated_category_btns_list.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/side_custom_padding.dart';
 import 'package:flutter/material.dart';

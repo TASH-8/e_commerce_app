@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
-import 'package:e_commerce_app/features/categories/presentation/widgets/appBar_builder.dart';
+import 'package:e_commerce_app/features/categories/presentation/widgets/appbar_builder.dart';
 import 'package:e_commerce_app/features/categories/presentation/widgets/categories_list.dart';
 import 'package:e_commerce_app/features/categories/presentation/widgets/men_and_women_items_listpreview.dart';
 import 'package:e_commerce_app/features/product/presentation/widgets/side_custom_padding.dart';

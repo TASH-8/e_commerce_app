@@ -1,3 +1,5 @@
+// ignore_for_file: use_rethrow_when_possible
+
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/features/login/data/models/user_login_models.dart';
 import 'package:firebase_auth/firebase_auth.dart';

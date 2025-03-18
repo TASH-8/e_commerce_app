@@ -3,6 +3,7 @@ import 'package:e_commerce_app/core/utils/app_enums.dart';
 import 'package:e_commerce_app/core/utils/app_extensions.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
 import 'package:e_commerce_app/features/forget_password/presentation/bloc/user_forget_bloc.dart';
+import 'package:e_commerce_app/features/home/presentation/bloc/items_bloc.dart';
 import 'package:e_commerce_app/features/login/presentation/bloc/login_bloc.dart';
 import 'package:e_commerce_app/features/more/presentation/bloc/logout_bloc.dart';
 import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.dart';
@@ -37,6 +38,7 @@ class _MyAppState extends State<MyApp> {
   final LoginBloc loginBloc = getIt<LoginBloc>();
   final UserForgetBloc forgetbloc = getIt<UserForgetBloc>();
   final LogoutBloc logoutBloc = getIt<LogoutBloc>();
+  final ItemsBloc itemsBloc = getIt<ItemsBloc>();
 
   @override
   void initState() {
@@ -67,6 +69,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(create: (_) => loginBloc),
         BlocProvider(create: (_) => forgetbloc),
         BlocProvider(create: (_) => logoutBloc),
+        BlocProvider(create: (_) => itemsBloc),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter().router,

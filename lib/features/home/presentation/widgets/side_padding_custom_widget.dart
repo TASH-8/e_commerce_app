@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SidesCustomPaddingWidget extends StatelessWidget {
   const SidesCustomPaddingWidget({super.key, required this.child});
 
-  final child;
+  final dynamic child;
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

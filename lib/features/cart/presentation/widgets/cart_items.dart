@@ -2,7 +2,7 @@ import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_bloc.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_state.dart';
-import 'package:e_commerce_app/features/cart/presentation/widgets/addItem_btn.dart';
+import 'package:e_commerce_app/features/cart/presentation/widgets/additem_btn.dart';
 import 'package:e_commerce_app/features/cart/presentation/widgets/removeitem_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

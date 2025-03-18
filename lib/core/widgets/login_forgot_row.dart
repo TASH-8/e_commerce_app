@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:e_commerce_app/core/theming/text_styles.dart';
 import 'package:e_commerce_app/core/utils/constants.dart';
@@ -48,8 +50,8 @@ class CustomLoginAndForgotRow extends StatelessWidget {
           ),
         ),
         SizedBox(width: screenWidth * 0.05),
-        Flexible(
-          child: const AutoSizeText(
+        const Flexible(
+          child: AutoSizeText(
             Constants.FORGOT,
             style: TextStyles.font17GreyNormal,
             maxLines: 1,

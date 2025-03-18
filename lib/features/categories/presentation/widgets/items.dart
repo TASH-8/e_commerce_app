@@ -1,4 +1,6 @@
-final List<String> men_clothing_items = [
+// ignore_for_file: constant_identifier_names
+
+const List<String> men_clothing_items = [
   'T-shirts',
   'Shirts',
   'Pants & Jeans',
@@ -8,7 +10,7 @@ final List<String> men_clothing_items = [
   'Coats',
   'Sweaters',
 ];
-final List<String> women_clothing_items = [
+const List<String> women_clothing_items = [
   'Officewear',
   'Blouse & T-Shirts',
   'Pants & Jeans',

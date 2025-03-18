@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:e_commerce_app/core/theming/colors_manger.dart';
 import 'package:e_commerce_app/features/profile/presentation/widgets/actions_tile.dart';
 import 'package:e_commerce_app/features/profile/presentation/widgets/order_profile_items.dart';

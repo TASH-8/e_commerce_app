@@ -10,7 +10,7 @@ sealed class CartEvent extends Equatable {
 class GetProductToCartEvent extends CartEvent {
   final String itemName;
   final String itemPicture;
-  final double itemPrice;
+  final num itemPrice;
   const GetProductToCartEvent({
     required this.itemName,
     required this.itemPicture,

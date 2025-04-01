@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   final LoginBloc loginBloc = getIt<LoginBloc>();
   final UserForgetBloc forgetbloc = getIt<UserForgetBloc>();
   final LogoutBloc logoutBloc = getIt<LogoutBloc>();
-  final ItemsBloc itemsBloc = getIt<ItemsBloc>();
+  final ItemsBloc itemsBloc = getIt<ItemsBloc>()..add(GetAllItemsEvent());
 
   @override
   void initState() {

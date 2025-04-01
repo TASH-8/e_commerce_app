@@ -10,7 +10,7 @@ sealed class ProductEvent extends Equatable {
 class GetProductDetailEvent extends ProductEvent {
   final String itemName;
   final String itemPicture;
-  final double itemPrice;
+  final num itemPrice;
 
   const GetProductDetailEvent(
       {required this.itemName,

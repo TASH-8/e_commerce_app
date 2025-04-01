@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class CartItem {
   final String itemName;
   final String itemPicture;
-  final double itemPrice;
+  final num itemPrice;
   final int quantity;
 
   CartItem({

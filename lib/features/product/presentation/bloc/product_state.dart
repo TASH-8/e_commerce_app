@@ -13,7 +13,7 @@ class ProductState extends Equatable {
       ];
   final String? itemName;
   final String? itemPicture;
-  final double? itemPrice;
+  final num? itemPrice;
   final ProductStatus status;
 
   const ProductState({
@@ -26,7 +26,7 @@ class ProductState extends Equatable {
   ProductState copyWith({
     String? itemName,
     String? itemPicture,
-    double? itemPrice,
+    num? itemPrice,
     ProductStatus? status,
   }) {
     return ProductState(

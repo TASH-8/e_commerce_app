@@ -66,7 +66,10 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: screenHeight * 0.012,
             ),
+
+            // const CustomItemsRow(),
             const CustomItemsRow(),
+
             const SizedBox(
               height: 10,
             )

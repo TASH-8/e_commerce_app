@@ -16,6 +16,11 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
     as _i161;
 
 import 'core/network/network_info.dart' as _i75;
+import 'features/cart/data/datasources/order_remotedatasource.dart' as _i482;
+import 'features/cart/data/repo/order_repo_imp.dart' as _i1009;
+import 'features/cart/domain/repo/order_repo.dart' as _i803;
+import 'features/cart/domain/usecases/order_usecase.dart' as _i94;
+import 'features/cart/presentation/blocs/bloc/cart_bloc.dart' as _i209;
 import 'features/forget_password/data/datasources/user_forget_datasource.dart'
     as _i922;
 import 'features/forget_password/data/repo/user_forget_repo_imp.dart' as _i359;
@@ -63,6 +68,8 @@ _i174.GetIt $initGetIt(
   final injectionModules = _$InjectionModules();
   gh.lazySingleton<_i161.InternetConnection>(
       () => injectionModules.connectionChecker);
+  gh.lazySingleton<_i482.OrderRemotedatasource>(() =>
+      _i482.OrderRemotedatasourceImp(fireStore: gh<_i974.FirebaseFirestore>()));
   gh.lazySingleton<_i796.ItemsRemotedatasource>(() =>
       _i796.ItemsRemotedatasourceImp(fireStore: gh<_i974.FirebaseFirestore>()));
   gh.lazySingleton<_i835.UserSignupRemoteDataSource>(() =>
@@ -104,6 +111,10 @@ _i174.GetIt $initGetIt(
             gh<_i75.NetworkInfo>(),
             remoteDataSource: gh<_i835.UserSignupRemoteDataSource>(),
           ));
+  gh.lazySingleton<_i803.OrderRepo>(() => _i1009.OrderRepoImp(
+        gh<_i482.OrderRemotedatasource>(),
+        gh<_i75.NetworkInfo>(),
+      ));
   gh.lazySingleton<_i408.GetUserLoginDataUsecase>(
       () => _i408.GetUserLoginDataUsecase(gh<_i362.UserForgetRepo>()));
   gh.lazySingleton<_i45.GetUserLoginDataUsecase>(
@@ -112,6 +123,8 @@ _i174.GetIt $initGetIt(
       _i881.UserForgetBloc(getAllData: gh<_i408.GetUserLoginDataUsecase>()));
   gh.lazySingleton<_i763.LogoutUsecase>(
       () => _i763.LogoutUsecase(gh<_i257.LogoutRepo>()));
+  gh.lazySingleton<_i94.PlaceOrderUsecase>(
+      () => _i94.PlaceOrderUsecase(gh<_i803.OrderRepo>()));
   gh.lazySingleton<_i14.GetUserSignupDataUsecase>(
       () => _i14.GetUserSignupDataUsecase(gh<_i994.UserSignUpRepository>()));
   gh.factory<_i554.LogoutBloc>(
@@ -120,6 +133,8 @@ _i174.GetIt $initGetIt(
       () => _i1070.LoginBloc(getAllData: gh<_i45.GetUserLoginDataUsecase>()));
   gh.factory<_i889.SignupUserBloc>(() =>
       _i889.SignupUserBloc(getAllData: gh<_i14.GetUserSignupDataUsecase>()));
+  gh.factory<_i209.CartBloc>(
+      () => _i209.CartBloc(placeOrderUseCase: gh<_i94.PlaceOrderUsecase>()));
   return getIt;
 }
 

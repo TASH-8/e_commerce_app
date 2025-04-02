@@ -24,20 +24,26 @@ class CartItem {
 }
 
 enum CartStatus {
+  orderError,
+  orderSuccess,
   initial,
-  counterinitial,
+  loading,
   loaded,
   error,
   increment,
   decrement,
-  remove
+  remove,
+  orderLoading,
 }
 
 class CartState extends Equatable {
   final CartStatus status;
   final List<CartItem> items;
+  final String messege;
+  
 
   const CartState({
+    this.messege = '',
     required this.status,
     this.items = const [],
   });
@@ -49,10 +55,12 @@ class CartState extends Equatable {
   List<Object?> get props => [status, items];
 
   CartState copyWith({
+    String? messege,
     CartStatus? status,
     List<CartItem>? items,
   }) {
     return CartState(
+      messege: messege ?? this.messege,
       status: status ?? this.status,
       items: items ?? this.items,
     );

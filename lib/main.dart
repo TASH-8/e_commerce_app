@@ -39,6 +39,7 @@ class _MyAppState extends State<MyApp> {
   final UserForgetBloc forgetbloc = getIt<UserForgetBloc>();
   final LogoutBloc logoutBloc = getIt<LogoutBloc>();
   final ItemsBloc itemsBloc = getIt<ItemsBloc>()..add(GetAllItemsEvent());
+  final CartBloc cartBloc = getIt<CartBloc>();
 
   @override
   void initState() {
@@ -62,9 +63,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => ProductBloc(),
         ),
-        BlocProvider(
-          create: (context) => CartBloc(),
-        ),
+        BlocProvider(create: (_) => cartBloc),
         BlocProvider(create: (_) => signupUserBloc),
         BlocProvider(create: (_) => loginBloc),
         BlocProvider(create: (_) => forgetbloc),

@@ -34,4 +34,3 @@ class SignupUserBloc extends Bloc<SignupUserEvent, SignupUserState> {
     });
   }
 }
-

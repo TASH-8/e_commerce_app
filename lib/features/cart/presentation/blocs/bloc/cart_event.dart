@@ -37,9 +37,24 @@ class DecreameantEvent extends CartEvent {
 }
 
 class RemoveEvent extends CartEvent {
-    final String itemName;
+  final String itemName;
 
   const RemoveEvent({required this.itemName});
   @override
   List<Object> get props => [itemName];
+}
+
+class CheckoutEvent extends CartEvent {
+  final String itemName;
+  final num itemPrice;
+  final String itemPicture;
+  final num itemTotal;
+  final num quantity;
+
+  const CheckoutEvent(
+      {required this.itemName,
+      required this.itemPrice,
+      required this.itemPicture,
+      required this.itemTotal,
+      required this.quantity});
 }

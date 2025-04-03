@@ -1,4 +1,53 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
+
+import 'package:e_commerce_app/features/cart/data/models/items_model.dart';
+
+enum CartStatus {
+  orderError,
+  orderSuccess,
+  initial,
+  loaded,
+  increment,
+  decrement,
+  remove,
+  orderLoading,
+  deleteCart,
+}
+
+class CartState extends Equatable {
+  final CartStatus status;
+  final List<CartItem> items;
+  final String messege;
+  final List<ItemsModel> orderList;
+
+  const CartState({
+    this.orderList = const [],
+    this.messege = '',
+    required this.status,
+    this.items = const [],
+  });
+
+  @override
+  List<Object?> get props => [status, items, orderList];
+
+  CartState copyWith({
+    CartStatus? status,
+    List<CartItem>? items,
+    String? messege,
+    List<ItemsModel>? orderList,
+  }) {
+    return CartState(
+      status: status ?? this.status,
+      items: items ?? this.items,
+      messege: messege ?? this.messege,
+      orderList: orderList ?? this.orderList,
+    );
+  }
+
+  double get totalPrice =>
+      items.fold(0, (total, item) => total + (item.itemPrice * item.quantity));
+}
 
 class CartItem {
   final String itemName;
@@ -19,50 +68,6 @@ class CartItem {
       itemPicture: itemPicture,
       itemPrice: itemPrice,
       quantity: quantity ?? this.quantity,
-    );
-  }
-}
-
-enum CartStatus {
-  orderError,
-  orderSuccess,
-  initial,
-  loading,
-  loaded,
-  error,
-  increment,
-  decrement,
-  remove,
-  orderLoading,
-}
-
-class CartState extends Equatable {
-  final CartStatus status;
-  final List<CartItem> items;
-  final String messege;
-  
-
-  const CartState({
-    this.messege = '',
-    required this.status,
-    this.items = const [],
-  });
-
-  double get totalPrice =>
-      items.fold(0, (total, item) => total + (item.itemPrice * item.quantity));
-
-  @override
-  List<Object?> get props => [status, items];
-
-  CartState copyWith({
-    String? messege,
-    CartStatus? status,
-    List<CartItem>? items,
-  }) {
-    return CartState(
-      messege: messege ?? this.messege,
-      status: status ?? this.status,
-      items: items ?? this.items,
     );
   }
 }

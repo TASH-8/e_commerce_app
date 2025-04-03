@@ -16,6 +16,9 @@ class GetProductToCartEvent extends CartEvent {
     required this.itemPicture,
     required this.itemPrice,
   });
+
+  @override
+  List<Object> get props => [itemName, itemPicture, itemPrice];
 }
 
 class IncrementEvent extends CartEvent {
@@ -45,16 +48,13 @@ class RemoveEvent extends CartEvent {
 }
 
 class CheckoutEvent extends CartEvent {
-  final String itemName;
-  final num itemPrice;
-  final String itemPicture;
-  final num itemTotal;
-  final num quantity;
+  final List<ItemsModel> orderList;
 
-  const CheckoutEvent(
-      {required this.itemName,
-      required this.itemPrice,
-      required this.itemPicture,
-      required this.itemTotal,
-      required this.quantity});
+  const CheckoutEvent({
+    required this.orderList,
+  });
+  @override
+  List<Object> get props => [orderList];
 }
+
+

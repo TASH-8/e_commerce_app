@@ -7,7 +7,6 @@ import 'package:e_commerce_app/features/product/presentation/bloc/product_bloc.d
 import 'package:e_commerce_app/features/product/presentation/widgets/custom_icon_for_share_add_btns.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class AddToCartBtn extends StatelessWidget {
   const AddToCartBtn({
@@ -43,7 +42,9 @@ class AddToCartBtn extends StatelessWidget {
                 label: Constants.GOTOCART,
                 textColor: Colors.white,
                 onPressed: () {
-                  context.push("/cart");
+
+                  // stopped till now
+                  // context.push("/cart");
                 },
               ),
             ),

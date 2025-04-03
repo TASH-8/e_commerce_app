@@ -5,4 +5,7 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 abstract class InjectionModules {
   @lazySingleton
   InternetConnection get connectionChecker => InternetConnection();
+
+
+  
 }

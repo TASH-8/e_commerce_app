@@ -23,15 +23,9 @@ class CheckoutBtn extends StatelessWidget {
           final state = cartBloc.state;
 
           if (state.items.isNotEmpty) {
-            for (var item in state.items) {
-              cartBloc.add(CheckoutEvent(
-                itemName: item.itemName,
-                itemPrice: item.itemPrice,
-                itemPicture: item.itemPicture,
-                itemTotal: item.itemPrice * item.quantity,
-                quantity: item.quantity,
-              ));
-            }
+            context.read<CartBloc>().add(CheckoutEvent(
+                  orderList: state.orderList,
+                ));
           }
         },
         child: Container(

@@ -23,6 +23,8 @@ class Constants {
   static const String ByResettingPassword =
       "By resetting your password, you agree to our";
   static const String SEND_EMAIL = "Send Email";
+  static const String PROCCINGORDER = "Processing your order...";
+
   static const String APPAREL = "Apparel";
   static const String BEAUTY = "Beauty";
   static const String SHOES = "Shoes";
@@ -91,12 +93,12 @@ class Constants {
   static const String MENAPPAREL = "Men's Apparel";
   static const String USERNAME = "User Name";
   static const String EDITPROFILE = "EDIT PROFILE";
-static const String PASSWORDSENT = "Password reset email sent!" ;
+  static const String PASSWORDSENT = "Password reset email sent!";
   static const String allMyOrders = 'All My Orders';
   static const String pendingShipments = 'Pending Shipments';
   static const String pendingPayments = 'Pending Payments';
   static const String finishedOrders = 'Finished Orders';
-static const String   SUCCESS = "Success";
+  static const String SUCCESS = "Success";
   // Profile Actions
   static const String inviteFriends = 'Invite Friends';
   static const String customerSupport = 'Customer Support';
@@ -170,4 +172,6 @@ static const String   SUCCESS = "Success";
   static const String ERROR_USER_NOT_FOUND = "No user found with this email.";
   static const String ERROR_NETWORK_REQUEST_FAILED =
       "Check your internet connection and try again.";
+
+  static const ORDERPLACED = "Order Placed Successfully";
 }

@@ -20,11 +20,11 @@ class UserNameEditEmail extends StatelessWidget {
           AutoSizeText(
             Constants.USERNAME,
             style: TextStyles.font35CustomGreyBold,
-            maxLines: 1, // Ensure no overflow
+            maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
           SizedBox(
-            height: screenHeight * 0.01, // 1% of screen height
+            height: screenHeight * 0.01,
           ),
           AutoSizeText(
             Constants.EMAILTEXTHINT,
@@ -33,12 +33,12 @@ class UserNameEditEmail extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           SizedBox(
-            height: screenHeight * 0.02, // 2% of screen height
+            height: screenHeight * 0.02,
           ),
           Container(
             padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.05, // 5% of screen width
-              vertical: screenHeight * 0.01, // 1% of screen height
+              horizontal: screenWidth * 0.05,
+              vertical: screenHeight * 0.01,
             ),
             decoration: BoxDecoration(
               border: Border.all(color: ColorManger.greyCustom),

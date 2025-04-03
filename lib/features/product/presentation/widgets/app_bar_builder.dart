@@ -51,7 +51,8 @@ AppBar buildAppBar(BuildContext context) {
         // Cart Icon
         IconButton(
           onPressed: () {
-            context.push("/cart");
+            // stopped right now
+            // context.push("/cart");
           },
           color: ColorManger.grey,
           icon: Icon(

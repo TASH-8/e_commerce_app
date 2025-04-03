@@ -1,5 +1,7 @@
 import 'package:e_commerce_app/core/errors/error_handler.dart';
-import 'package:e_commerce_app/features/cart/data/models/order_model.dart';
+import 'package:e_commerce_app/core/utils/constants.dart';
+import 'package:e_commerce_app/features/cart/data/models/items_model.dart';
+import 'package:e_commerce_app/features/cart/data/models/order_main_model.dart';
 import 'package:e_commerce_app/features/cart/domain/usecases/order_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commerce_app/features/cart/presentation/blocs/bloc/cart_state.dart';
@@ -66,23 +68,39 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
     on<CheckoutEvent>((event, emit) async {
       emit(state.copyWith(status: CartStatus.orderLoading));
-      final orderModel = OrderModel(
-        itemName: event.itemName,
-        itemPicture: event.itemPicture,
-        itemPrice: event.itemPrice,
-        quantity: event.quantity,
-        itemTotal: event.itemTotal,
-      );
 
-      final failureOrUnit = await placeOrderUseCase(orderModel);
+      final List<ItemsModel> orderItems = state.items
+          .map((item) => ItemsModel(
+                itemName: item.itemName,
+                itemPicture: item.itemPicture,
+                itemPrice: item.itemPrice,
+                quantity: item.quantity,
+                itemTotal: item.itemPrice * item.quantity,
+              ))
+          .toList();
+
+      final OrderMainModel orderMainModel =
+          OrderMainModel(orderList: orderItems);
+
+      final failureOrUnit = await placeOrderUseCase(orderMainModel);
+
       failureOrUnit.fold(
         (failure) => emit(state.copyWith(
           status: CartStatus.orderError,
           messege: mapFailureToMessage(failure),
         )),
-        (_) => emit(state.copyWith(
-          status: CartStatus.orderSuccess,
-        )),
+        (_) {
+          emit(state.copyWith(
+            status: CartStatus.orderSuccess,
+            orderList: orderItems,
+            messege: Constants.ORDERPLACED,
+          ));
+          emit(state.copyWith(
+            status: CartStatus.deleteCart,
+            items: [],
+            orderList: [],
+          ));
+        },
       );
     });
   }

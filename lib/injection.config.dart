@@ -68,8 +68,11 @@ _i174.GetIt $initGetIt(
   final injectionModules = _$InjectionModules();
   gh.lazySingleton<_i161.InternetConnection>(
       () => injectionModules.connectionChecker);
-  gh.lazySingleton<_i482.OrderRemotedatasource>(() =>
-      _i482.OrderRemotedatasourceImp(fireStore: gh<_i974.FirebaseFirestore>()));
+  gh.lazySingleton<_i482.OrderRemotedatasource>(
+      () => _i482.OrderRemotedatasourceImp(
+            auth: gh<_i59.FirebaseAuth>(),
+            fireStore: gh<_i974.FirebaseFirestore>(),
+          ));
   gh.lazySingleton<_i796.ItemsRemotedatasource>(() =>
       _i796.ItemsRemotedatasourceImp(fireStore: gh<_i974.FirebaseFirestore>()));
   gh.lazySingleton<_i835.UserSignupRemoteDataSource>(() =>

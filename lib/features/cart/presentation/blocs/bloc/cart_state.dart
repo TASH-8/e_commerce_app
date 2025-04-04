@@ -20,8 +20,10 @@ class CartState extends Equatable {
   final String messege;
   final List<ItemsModel> orderList;
   final num orderTotalPrice;
+  final String userId;
 
   const CartState({
+    this.userId = '',
     this.orderTotalPrice = 0,
     this.orderList = const [],
     this.messege = '',
@@ -38,13 +40,16 @@ class CartState extends Equatable {
     String? messege,
     List<ItemsModel>? orderList,
     num? orderTotalPrice,
+    String? userId,
   }) {
     return CartState(
-        status: status ?? this.status,
-        items: items ?? this.items,
-        messege: messege ?? this.messege,
-        orderList: orderList ?? this.orderList,
-        orderTotalPrice: orderTotalPrice ?? this.orderTotalPrice);
+      status: status ?? this.status,
+      items: items ?? this.items,
+      messege: messege ?? this.messege,
+      orderList: orderList ?? this.orderList,
+      orderTotalPrice: orderTotalPrice ?? this.orderTotalPrice,
+      userId: userId ?? this.userId,
+    );
   }
 
   double get totalPrice =>

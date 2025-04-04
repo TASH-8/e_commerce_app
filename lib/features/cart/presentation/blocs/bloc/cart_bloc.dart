@@ -82,6 +82,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           .fold(0, (sum, item) => sum + (item.itemPrice * item.quantity));
 
       final OrderMainModel orderMainModel = OrderMainModel(
+        userId: state.userId,
         orderList: orderItems,
         orderTotalPrice: total,
       );

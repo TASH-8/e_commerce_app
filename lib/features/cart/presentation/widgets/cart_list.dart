@@ -31,8 +31,18 @@ class CartList extends StatelessWidget {
               },
             ),
           );
-        }
-        else if (state.status == CartStatus.orderSuccess) {
+        } else if (state.status == CartStatus.orderSuccess) {
+          return SizedBox(
+            width: double.infinity,
+            height: screenHeight * 0.8,
+            child: Center(
+              child: AutoSizeText(
+                Constants.CARTISEMPTY,
+                style: TextStyles.font35CustomGreyBold,
+              ),
+            ),
+          );
+        } else if (state.status == CartStatus.initial) {
           return SizedBox(
             width: double.infinity,
             height: screenHeight * 0.8,

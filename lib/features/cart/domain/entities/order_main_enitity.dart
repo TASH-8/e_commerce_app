@@ -4,8 +4,10 @@ import 'package:equatable/equatable.dart';
 class OrderMainEntity extends Equatable {
   final List<ItemsModel> orderList;
   final num orderTotalPrice;
+  final String userId;
 
   const OrderMainEntity({
+    required this.userId,
     required this.orderList,
     required this.orderTotalPrice,
   });

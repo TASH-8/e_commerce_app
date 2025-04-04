@@ -5,7 +5,7 @@ part 'order_main_model.g.dart';
 
 @JsonSerializable()
 class OrderMainModel extends OrderMainEntity {
-  OrderMainModel({required super.orderList, required super.orderTotalPrice});
+  const OrderMainModel({required super.orderList, required super.orderTotalPrice, required super.userId});
 
   factory OrderMainModel.fromJson(Map<String, dynamic> json) =>
       _$OrderMainModelFromJson(json);

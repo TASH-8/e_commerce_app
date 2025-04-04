@@ -56,5 +56,3 @@ class CheckoutEvent extends CartEvent {
   @override
   List<Object> get props => [orderList];
 }
-
-

@@ -16,9 +16,9 @@ class CartList extends StatelessWidget {
 
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        if (state.status == CartStatus.loaded && state.items.isNotEmpty) {
+        if (state.items.isNotEmpty) {
           return SizedBox(
-            height: screenHeight * 0.7, // Adjust height as needed
+            height: screenHeight * 0.7,
             child: ListView.builder(
               itemCount: state.items.length,
               itemBuilder: (context, index) {
@@ -31,7 +31,8 @@ class CartList extends StatelessWidget {
               },
             ),
           );
-        } else {
+        }
+        else if (state.status == CartStatus.orderSuccess) {
           return SizedBox(
             width: double.infinity,
             height: screenHeight * 0.8,
@@ -42,6 +43,8 @@ class CartList extends StatelessWidget {
               ),
             ),
           );
+        } else {
+          return const SizedBox.shrink();
         }
       },
     );

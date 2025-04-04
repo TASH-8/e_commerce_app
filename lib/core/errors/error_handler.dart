@@ -33,7 +33,7 @@ String mapFailureToMessage(Failure failure) {
     return 'No internet connection.';
   } else {
     return 'Unexpected error.';
-  }
+  } 
 }
 
 FirebaseAuthErrorType mapFirebaseErrorCode(String code) {

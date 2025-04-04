@@ -13,7 +13,7 @@ class ItemsModel extends ItemsEntity {
       required super.itemName});
 
   factory ItemsModel.fromJson(Map<String, dynamic> json) =>
-      _$OrderItemModelFromJson(json);
+      _$ItemsModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$OrderItemModelToJson(this);
+  Map<String, dynamic> toJson() => _$ItemsModelToJson(this);
 }

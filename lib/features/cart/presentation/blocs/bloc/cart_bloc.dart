@@ -78,9 +78,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
                 itemTotal: item.itemPrice * item.quantity,
               ))
           .toList();
+      final num total = state.items
+          .fold(0, (sum, item) => sum + (item.itemPrice * item.quantity));
 
-      final OrderMainModel orderMainModel =
-          OrderMainModel(orderList: orderItems);
+      final OrderMainModel orderMainModel = OrderMainModel(
+        orderList: orderItems,
+        orderTotalPrice: total,
+      );
 
       final failureOrUnit = await placeOrderUseCase(orderMainModel);
 
@@ -94,11 +98,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
             status: CartStatus.orderSuccess,
             orderList: orderItems,
             messege: Constants.ORDERPLACED,
-          ));
-          emit(state.copyWith(
-            status: CartStatus.deleteCart,
+            orderTotalPrice: total,
             items: [],
-            orderList: [],
           ));
         },
       );

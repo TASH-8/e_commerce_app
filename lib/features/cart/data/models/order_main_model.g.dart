@@ -11,9 +11,11 @@ OrderMainModel _$OrderMainModelFromJson(Map<String, dynamic> json) =>
       orderList: (json['orderList'] as List<dynamic>)
           .map((e) => ItemsModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      orderTotalPrice: json['orderTotalPrice'] as num,
     );
 
 Map<String, dynamic> _$OrderMainModelToJson(OrderMainModel instance) =>
     <String, dynamic>{
       'orderList': instance.orderList,
+      'orderTotalPrice': instance.orderTotalPrice,
     };

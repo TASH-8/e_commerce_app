@@ -12,7 +12,6 @@ enum CartStatus {
   decrement,
   remove,
   orderLoading,
-  deleteCart,
 }
 
 class CartState extends Equatable {
@@ -20,8 +19,10 @@ class CartState extends Equatable {
   final List<CartItem> items;
   final String messege;
   final List<ItemsModel> orderList;
+  final num orderTotalPrice;
 
   const CartState({
+    this.orderTotalPrice = 0,
     this.orderList = const [],
     this.messege = '',
     required this.status,
@@ -36,13 +37,14 @@ class CartState extends Equatable {
     List<CartItem>? items,
     String? messege,
     List<ItemsModel>? orderList,
+    num? orderTotalPrice,
   }) {
     return CartState(
-      status: status ?? this.status,
-      items: items ?? this.items,
-      messege: messege ?? this.messege,
-      orderList: orderList ?? this.orderList,
-    );
+        status: status ?? this.status,
+        items: items ?? this.items,
+        messege: messege ?? this.messege,
+        orderList: orderList ?? this.orderList,
+        orderTotalPrice: orderTotalPrice ?? this.orderTotalPrice);
   }
 
   double get totalPrice =>

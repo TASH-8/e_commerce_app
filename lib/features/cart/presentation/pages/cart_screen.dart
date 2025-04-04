@@ -28,8 +28,15 @@ class CartScreen extends StatelessWidget {
         } else if (state.status == CartStatus.orderSuccess) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(Constants.ORDERPLACED),
+            SnackBar(
+              content: Text(state.messege),
+            ),
+          );
+        } else if (state.status == CartStatus.orderError) {
+          Navigator.pop(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.messege),
             ),
           );
         }

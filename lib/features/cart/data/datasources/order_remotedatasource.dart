@@ -22,6 +22,7 @@ class OrderRemotedatasourceImp implements OrderRemotedatasource {
     try {
       await orders.add({
         "orderList": orderModel.orderList.map((item) => item.toJson()).toList(),
+        "orderTotalPrice": orderModel.orderTotalPrice
       });
       return unit;
     } on FirebaseException catch (e) {
